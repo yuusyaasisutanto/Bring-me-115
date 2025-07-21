@@ -1,0 +1,13 @@
+{
+  "package": "com.yuusyaasisutanto.bringme115.mixin",
+  "refmap": "bringme115.refmap.json",
+  "mixins": [
+
+  ],
+  "server": [
+
+  ],
+  "client": [
+
+  ]
+}

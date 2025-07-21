@@ -3,6 +3,7 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'org.spongepowered.mixin' version '0.7.+'
 }
 
 version = mod_version
@@ -130,9 +131,13 @@ dependencies {
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
+    // Mixin
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
     // tacz-1.20.1-1.1.6-hotfix.jar
     // plz dont ask me "Why not 1.1.5?" I was so lazy
     implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:6654541")
+
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
@@ -148,6 +153,11 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+}
+
+mixin {
+    add sourceSets.main, 'bringme115.refmap.json'
+    config 'bringme115.mixins.json'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
