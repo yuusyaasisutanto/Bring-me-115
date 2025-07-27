@@ -1,6 +1,7 @@
 package com.yuusyaasisutanto.bringme115;
 
 import com.yuusyaasisutanto.bringme115.content.BM115ItemRegister;
+import com.yuusyaasisutanto.bringme115.content.BM115TabRegister;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -17,5 +18,6 @@ public class BringMe115 {
     public BringMe115(FMLJavaModLoadingContext context){
         IEventBus bus = context.getModEventBus();
         BM115ItemRegister.REGISTRY.register(bus);
+        BM115TabRegister.REGISTRY.register(bus);
     }
 }
