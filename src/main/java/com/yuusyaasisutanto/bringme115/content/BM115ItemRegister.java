@@ -1,6 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
+import com.yuusyaasisutanto.bringme115.content.testbomb.BM115TestItemBomb;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -17,7 +18,7 @@ public class BM115ItemRegister {
     public static final List<RegistryObject<Item>> MAIN = new ArrayList<>();
 
     public static final RegistryObject<Item> CODINGPRACTICE
-            = register("codingpractice",()->new Item(new Item.Properties()));
+            = register("codingpractice",()->new BM115TestItemBomb(new Item.Properties().stacksTo(1)));
 
     public static final RegistryObject<Item> TESTIMP
             = register("testimp",()->new Item(new Item.Properties()));
