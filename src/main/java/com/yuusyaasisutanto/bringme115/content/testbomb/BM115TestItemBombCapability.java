@@ -54,6 +54,24 @@ public class BM115TestItemBombCapability implements ICapabilitySerializable<Comp
 
     }
 
+    public void set(ResourceKey<Level> dimension, BlockPos pos){
+        this.dimension = dimension;
+        this.pos = pos;
+    }
+
+    public ResourceKey<Level> getDimension(){
+        return this.dimension;
+    }
+
+    public BlockPos getPos(){
+        return this.pos;
+    }
+
+    public void clear(){
+        this.dimension = null;
+        this.pos = null;
+    }
+
     public static void register(RegisterCapabilitiesEvent event){
         event.register(BM115TestItemBombCapability.class);
     }

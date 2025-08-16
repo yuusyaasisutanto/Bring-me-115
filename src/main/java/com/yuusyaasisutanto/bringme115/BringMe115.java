@@ -26,6 +26,6 @@ public class BringMe115 {
         BM115ItemRegister.REGISTRY.register(bus);
         BM115TabRegister.REGISTRY.register(bus);
         bus.<RegisterCapabilitiesEvent>addListener(BM115TestItemBombCapability::register);
-        MinecraftForge.EVENT_BUS.<AttachCapabilitiesEvent<ItemStack>>addListener(BM115TestItemBombHandler::attach);
+        MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class ,BM115TestItemBombHandler::attach);
     }
 }
