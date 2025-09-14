@@ -2,12 +2,10 @@
   "package": "com.yuusyaasisutanto.bringme115.mixin",
   "refmap": "bringme115.refmap.json",
   "mixins": [
-
+    "tacz.BM115EntityKineticBullet"
   ],
   "server": [
-
   ],
   "client": [
-
   ]
 }
