@@ -138,6 +138,15 @@ dependencies {
     // plz dont ask me "Why not 1.1.5?" I was so lazy
     implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:6654541")
 
+    // MmmMmmMmmMmm (Target Dummy)
+    // dummmmmmy-1.20-2.0.9.jar
+    // just I wanna watch DPS
+    implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
+
+    // moonlight-1.20-2.16.10-forge.jar
+    // library fo dummy
+    implementation fg.deobf("curse.maven:selene-499980:6983934")
+
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
