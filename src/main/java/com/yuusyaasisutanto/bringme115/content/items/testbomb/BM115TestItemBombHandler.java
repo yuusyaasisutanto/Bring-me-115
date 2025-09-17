@@ -1,4 +1,4 @@
-package com.yuusyaasisutanto.bringme115.content.testbomb;
+package com.yuusyaasisutanto.bringme115.content.items.testbomb;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.BM115ItemRegister;

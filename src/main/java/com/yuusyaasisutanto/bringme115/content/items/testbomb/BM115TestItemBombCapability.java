@@ -1,4 +1,4 @@
-package com.yuusyaasisutanto.bringme115.content.testbomb;
+package com.yuusyaasisutanto.bringme115.content.items.testbomb;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

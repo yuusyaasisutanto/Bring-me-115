@@ -1,4 +1,4 @@
-package com.yuusyaasisutanto.bringme115.content.testbomb;
+package com.yuusyaasisutanto.bringme115.content.items.testbomb;
 
 // このアイテムは自分がJavaとModdingを学ぶために追加した物です。本実装では取り除かれる可能性があります。
 // This item's purpose is practicing Java and Modding only. It'll may remove on releasing.
