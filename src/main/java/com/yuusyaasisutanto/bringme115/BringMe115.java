@@ -1,5 +1,7 @@
 package com.yuusyaasisutanto.bringme115;
 
+import com.yuusyaasisutanto.bringme115.content.BM115BlockEntityRegister;
+import com.yuusyaasisutanto.bringme115.content.BM115BlockRegister;
 import com.yuusyaasisutanto.bringme115.content.BM115ItemRegister;
 import com.yuusyaasisutanto.bringme115.content.BM115TabRegister;
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombCapability;
@@ -23,6 +25,8 @@ public class BringMe115 {
     public BringMe115(FMLJavaModLoadingContext context){
         IEventBus bus = context.getModEventBus();
         BM115ItemRegister.REGISTRY.register(bus);
+        BM115BlockRegister.REGISTRY.register(bus);
+        BM115BlockEntityRegister.REGISTRY.register(bus);
         BM115TabRegister.REGISTRY.register(bus);
         bus.<RegisterCapabilitiesEvent>addListener(BM115TestItemBombCapability::register);
         MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class ,BM115TestItemBombHandler::attach);

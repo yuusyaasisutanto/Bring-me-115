@@ -2,7 +2,9 @@ package com.yuusyaasisutanto.bringme115.content;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBomb;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -25,7 +27,10 @@ public class BM115ItemRegister {
     public static final RegistryObject<Item> TESTIMP
             = register("testimp",()-> new Item(new Item.Properties()));
 
-    // for CreativeTab
+    static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
+        return BM115ItemRegister.REGISTRY.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
     public static RegistryObject<Item> register(String name, Supplier<Item> supplier){
         RegistryObject<Item> item = REGISTRY.register(name, supplier);
             MAIN.add(item);

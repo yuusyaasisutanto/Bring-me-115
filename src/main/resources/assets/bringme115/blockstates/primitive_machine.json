@@ -1,0 +1,7 @@
+{
+  "variants": {
+      "": {
+         "model": "bringme115:block/primitive_machine"
+      }
+    }
+}
