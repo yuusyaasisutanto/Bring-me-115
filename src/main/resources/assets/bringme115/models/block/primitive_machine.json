@@ -2,9 +2,9 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"1": "primitive_machine_wood",
-		"2": "primitive_machine_obsidian",
-		"particle": "primitive_machine_obsidian"
+		"1": "bringme115:block/primitive_machine_wood",
+		"2": "bringme115:block/primitive_machine_obsidian",
+		"particle": "bringme115:block/primitive_machine_obsidian"
 	},
 	"elements": [
 		{

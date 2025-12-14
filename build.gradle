@@ -134,9 +134,9 @@ dependencies {
     // Mixin
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    // tacz-1.20.1-1.1.6-hotfix.jar
+    // tacz-1.20.1-1.1.7-release.jar
     // plz dont ask me "Why not 1.1.5?" I was so lazy
-    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:6654541")
+    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:7278003")
 
     // MmmMmmMmmMmm (Target Dummy)
     // dummmmmmy-1.20-2.0.9.jar
@@ -144,9 +144,20 @@ dependencies {
     implementation fg.deobf("curse.maven:mmmmmmmmmmmm-225738:6860192")
 
     // moonlight-1.20-2.16.10-forge.jar
-    // library fo dummy
+    // library for dummy
     implementation fg.deobf("curse.maven:selene-499980:6983934")
 
+    // kubejs-forge-2001.6.5-build.16.jar
+    // for checking NBT and more
+    // implementation fg.deobf("curse.maven:kubejs-238086:5853326")
+
+    // architectury-9.2.14-forge.jar
+    // library for Kubejs 1
+    // implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
+
+    // rhino-forge-2001.2.3-build.10.jar
+    // library for Kubejs 2
+    // implementation fg.deobf("curse.maven:rhino-416294:6186971")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime

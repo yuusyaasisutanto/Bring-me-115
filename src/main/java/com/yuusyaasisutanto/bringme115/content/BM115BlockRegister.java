@@ -22,7 +22,7 @@ public class BM115BlockRegister {
             = DeferredRegister.create(ForgeRegistries.BLOCKS, BringMe115.ID);
 
     public static final RegistryObject<Block> PRIMITIVE_MACHINE
-            = registerBlock("primitive_machine", () -> new BM115PrimitiveMachine(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE)));
+            = registerBlock("primitive_machine", () -> new BM115PrimitiveMachine(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = REGISTRY.register(name, block);

@@ -28,7 +28,7 @@ public class BM115ItemRegister {
             = register("testimp",()-> new Item(new Item.Properties()));
 
     static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
-        return BM115ItemRegister.REGISTRY.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        return BM115ItemRegister.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
     public static RegistryObject<Item> register(String name, Supplier<Item> supplier){
