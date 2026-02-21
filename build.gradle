@@ -149,15 +149,15 @@ dependencies {
 
     // kubejs-forge-2001.6.5-build.16.jar
     // for checking NBT and more
-    // implementation fg.deobf("curse.maven:kubejs-238086:5853326")
+     implementation fg.deobf("curse.maven:kubejs-238086:5853326")
 
     // architectury-9.2.14-forge.jar
     // library for Kubejs 1
-    // implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
+     implementation fg.deobf("curse.maven:architectury-api-419699:5137938")
 
     // rhino-forge-2001.2.3-build.10.jar
     // library for Kubejs 2
-    // implementation fg.deobf("curse.maven:rhino-416294:6186971")
+     implementation fg.deobf("curse.maven:rhino-416294:6186971")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
