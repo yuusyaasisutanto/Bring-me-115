@@ -1,12 +1,9 @@
 package com.yuusyaasisutanto.bringme115.content;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
-import com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_machine.BM115PrimitiveMachine;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
+import com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_machine.BM115PrimitiveMachineBlock;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.EnchantmentTableBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -22,7 +19,7 @@ public class BM115BlockRegister {
             = DeferredRegister.create(ForgeRegistries.BLOCKS, BringMe115.ID);
 
     public static final RegistryObject<Block> PRIMITIVE_MACHINE
-            = registerBlock("primitive_machine", () -> new BM115PrimitiveMachine(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion()));
+            = registerBlock("primitive_machine", () -> new BM115PrimitiveMachineBlock(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = REGISTRY.register(name, block);
