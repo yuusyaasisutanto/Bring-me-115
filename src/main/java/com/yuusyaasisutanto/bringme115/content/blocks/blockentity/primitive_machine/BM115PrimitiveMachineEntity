@@ -14,13 +14,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class BM115PrimitiveMachineEntity extends BlockEntity implements MenuProvider {
 
-    //明日はこの続きから、適当にGUIを構築する方法を調べとく
+    //明日はこの続きから、適当にGUIを構築する方法を調べとく→そもそもBlockEntityじゃなくてもよくね？説が出てきたのでそうするべきかも
     public BM115PrimitiveMachineEntity(BlockEntityType<?> p_155228_, BlockPos p_155229_, BlockState p_155230_) {
         super(p_155228_, p_155229_, p_155230_);
     }
 
     public BM115PrimitiveMachineEntity(BlockBehaviour.Properties properties) {
-        super();
+        super(properties);
     }
 
     @Override
