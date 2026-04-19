@@ -1,7 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.items.testbomb;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
-import com.yuusyaasisutanto.bringme115.content.BM115ItemRegister;
+import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.event.AttachCapabilitiesEvent;

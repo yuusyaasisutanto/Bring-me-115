@@ -1,4 +1,4 @@
-package com.yuusyaasisutanto.bringme115.content;
+package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_machine.BM115PrimitiveMachineBlock;
@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 
-import static com.yuusyaasisutanto.bringme115.content.BM115ItemRegister.registerBlockItem;
+import static com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister.registerBlockItem;
 
 public class BM115BlockRegister {
     public static final DeferredRegister<Block> REGISTRY

@@ -18,7 +18,9 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float p_97788_, int p_97789_, int p_97790_) {
-
+    protected void renderBg(GuiGraphics guiGraphics, float f, int w, int h) {
+        int posW = (this.width - this.imageWidth)/2;
+        int posH = (this.height - this.imageHeight)/2;
+        guiGraphics.blit(TEXTURE, posW, posH, 0,0, this.imageWidth, this.imageHeight);
     }
 }

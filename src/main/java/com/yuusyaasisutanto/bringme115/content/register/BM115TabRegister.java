@@ -1,4 +1,4 @@
-package com.yuusyaasisutanto.bringme115.content;
+package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import net.minecraft.core.registries.Registries;

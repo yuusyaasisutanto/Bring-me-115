@@ -1,8 +1,8 @@
 package com.yuusyaasisutanto.bringme115;
 
-import com.yuusyaasisutanto.bringme115.content.*;
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombCapability;
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombHandler;
+import com.yuusyaasisutanto.bringme115.content.register.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;

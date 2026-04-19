@@ -1,7 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.screen.primitivemachine;
 
-import com.yuusyaasisutanto.bringme115.content.BM115BlockRegister;
-import com.yuusyaasisutanto.bringme115.content.BM115ScreenRegister;
+import com.yuusyaasisutanto.bringme115.content.register.BM115BlockRegister;
+import com.yuusyaasisutanto.bringme115.content.register.BM115ScreenRegister;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
