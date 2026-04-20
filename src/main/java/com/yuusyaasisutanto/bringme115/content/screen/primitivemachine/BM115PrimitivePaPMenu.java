@@ -13,9 +13,23 @@ import net.minecraft.world.item.ItemStack;
 
 public class BM115PrimitivePaPMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
-    private final Container crystalSlot = new SimpleContainer(1);
-    private final Container gunSlot = new SimpleContainer(1);
+    private final Container primitivePaPSlot = new SimpleContainer(2);
 
+    //借用 from
+    //github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.20.X/blob/30-blockEntity/src/main/java/net/kaupenjoe/tutorialmod/screen/GemPolishingStationMenu.java
+    //MIT license | github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.20.X/blob/30-blockEntity/LICENSE
+
+    private static final int HOTBAR_SLOT_COUNT = 9;
+    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
+    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
+    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
+    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
+    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
+    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
+
+    // THIS YOU HAVE TO DEFINE!
+    private static final int TE_INVENTORY_SLOT_COUNT = 2;  // must be the number of slots you have!
+    // 借用ここまで
 
     // ClientSide
     public BM115PrimitivePaPMenu(int a, Inventory playerInv){
@@ -26,25 +40,61 @@ public class BM115PrimitivePaPMenu extends AbstractContainerMenu {
     public BM115PrimitivePaPMenu(int a, Inventory playerInv, ContainerLevelAccess access) {
         super(BM115ScreenRegister.PRIMITIVE_PAP_MENU.get(), a);
         this.access = access;
-
-        this.addSlot(new Slot(this.crystalSlot, 0, 80, 35));
-        this.addSlot(new Slot(this.gunSlot, 1, 120, 35));
-
+        checkContainerSize(playerInv, 2);
         setupPlayerInventory(playerInv, 8, 84);
 
+        //gunslot
+        this.addSlot(new Slot(this.primitivePaPSlot, 0, 80, 35));
+        //crystalslot
+        this.addSlot(new Slot(this.primitivePaPSlot, 1, 120, 35));
+
+
+
     }
 
-    //一旦省略、後程コンテナのID設定と同時に動作を実装するべし
+    //借用 from
+    //github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.20.X/blob/30-blockEntity/src/main/java/net/kaupenjoe/tutorialmod/screen/GemPolishingStationMenu.java
+    //MIT license | github.com/Tutorials-By-Kaupenjoe/Forge-Tutorial-1.20.X/blob/30-blockEntity/LICENSE
+
     @Override
-    public ItemStack quickMoveStack(Player player, int index) {
-        return ItemStack.EMPTY;
+    public ItemStack quickMoveStack(Player playerIn, int pIndex) {
+        Slot sourceSlot = slots.get(pIndex);
+        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        ItemStack sourceStack = sourceSlot.getItem();
+        ItemStack copyOfSourceStack = sourceStack.copy();
+
+        // Check if the slot clicked is one of the vanilla container slots
+        if (pIndex < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+            // This is a vanilla container slot so merge the stack into the tile inventory
+            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
+                    + TE_INVENTORY_SLOT_COUNT, false)) {
+                return ItemStack.EMPTY;  // EMPTY_ITEM
+            }
+        } else if (pIndex < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
+            // This is a TE slot so merge the stack into the players inventory
+            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+                return ItemStack.EMPTY;
+            }
+        } else {
+            System.out.println("Invalid slotIndex:" + pIndex);
+            return ItemStack.EMPTY;
+        }
+        // If stack size == 0 (the entire stack was moved) set slot contents to null
+        if (sourceStack.getCount() == 0) {
+            sourceSlot.set(ItemStack.EMPTY);
+        } else {
+            sourceSlot.setChanged();
+        }
+        sourceSlot.onTake(playerIn, sourceStack);
+        return copyOfSourceStack;
     }
+
+    // 借用ここまで
 
     @Override
     public void removed(Player player) {
         super.removed(player);
-        this.access.execute(((level, blockPos) -> {this.clearContainer(player, this.crystalSlot);}));
-        this.access.execute(((level, blockPos) -> {this.clearContainer(player, this.gunSlot);}));
+        this.access.execute(((level, blockPos) -> {this.clearContainer(player, this.primitivePaPSlot);}));
     }
 
     @Override

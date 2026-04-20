@@ -49,7 +49,8 @@ public class BM115PrimitiveMachineBlock extends Block {
 
     @Override
     public @Nullable MenuProvider getMenuProvider(BlockState state, Level level, BlockPos blockPos) {
-        return new SimpleMenuProvider((num, inv, player) -> {return new BM115PrimitivePaPMenu(num, inv, ContainerLevelAccess.create(level, blockPos));}, CONTAINER_TITLE);
+        return new SimpleMenuProvider((num, inv, player) ->
+            {return new BM115PrimitivePaPMenu(num, inv, ContainerLevelAccess.create(level, blockPos));}, CONTAINER_TITLE);
     }
 
     //    @Override
