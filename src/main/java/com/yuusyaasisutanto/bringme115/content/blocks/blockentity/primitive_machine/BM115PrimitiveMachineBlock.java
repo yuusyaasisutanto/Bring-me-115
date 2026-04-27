@@ -2,6 +2,7 @@ package com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_mac
 
 import com.yuusyaasisutanto.bringme115.content.screen.primitivemachine.BM115PrimitivePaPMenu;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -9,11 +10,15 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -22,15 +27,31 @@ import org.jetbrains.annotations.Nullable;
 public class BM115PrimitiveMachineBlock extends Block {
     private static final Component CONTAINER_TITLE = Component.translatable("container.crafting");
     public static final VoxelShape SHAPE = Block.box(0,0,0,16,12,16);
+    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public BM115PrimitiveMachineBlock(Properties p_49224_) {
         super(p_49224_);
+
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
     @Override
     public VoxelShape getShape(BlockState p_60555_, BlockGetter p_60556_, BlockPos p_60557_, CollisionContext p_60558_) {
         return SHAPE;
     }
+    // chestを参考にしながら実装、都度Geminiに聞きながらではあるが
+    @Override
+    public BlockState getStateForPlacement(BlockPlaceContext context){
+        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+    // このBlockにBlockStateを追加する儀式、Chestを見る限り水没してるかとかも判断できるっぽい
+    // 今回は向きのみ
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
 
     @Override
     public RenderShape getRenderShape(BlockState p_49232_) {

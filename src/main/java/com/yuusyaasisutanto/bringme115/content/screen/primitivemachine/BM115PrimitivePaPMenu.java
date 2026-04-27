@@ -1,7 +1,10 @@
 package com.yuusyaasisutanto.bringme115.content.screen.primitivemachine;
 
+import com.tacz.guns.init.ModItems;
 import com.yuusyaasisutanto.bringme115.content.register.BM115BlockRegister;
+import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ScreenRegister;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,7 +12,10 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 public class BM115PrimitivePaPMenu extends AbstractContainerMenu {
     private final ContainerLevelAccess access;
@@ -44,9 +50,22 @@ public class BM115PrimitivePaPMenu extends AbstractContainerMenu {
         setupPlayerInventory(playerInv, 8, 84);
 
         //gunslot
-        this.addSlot(new Slot(this.primitivePaPSlot, 0, 80, 35));
+        this.addSlot(new Slot(this.primitivePaPSlot, 0, 80, 35){
+            @Override
+            public boolean mayPlace(@NotNull ItemStack inputItem) {
+                ResourceLocation itemName = ForgeRegistries.ITEMS.getKey(inputItem.getItem());
+                return inputItem != null && itemName.getNamespace().equals("tacz") && itemName.getPath().equals("modern_kinetic_gun");
+            }
+        });
+
         //crystalslot
-        this.addSlot(new Slot(this.primitivePaPSlot, 1, 120, 35));
+        this.addSlot(new Slot(this.primitivePaPSlot, 1, 120, 35){
+                         @Override
+                         public boolean mayPlace(@NotNull ItemStack inputItem) {
+                             return inputItem.is(BM115ItemRegister.AETHERIUM_CRYSTAL.get());
+                         }
+                     }
+        );
 
 
 

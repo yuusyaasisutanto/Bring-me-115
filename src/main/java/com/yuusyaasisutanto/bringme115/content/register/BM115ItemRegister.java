@@ -27,6 +27,10 @@ public class BM115ItemRegister {
     public static final RegistryObject<Item> TESTIMP
             = register("testimp",()-> new Item(new Item.Properties()));
 
+    //PaPCristal
+    public static final RegistryObject<Item> AETHERIUM_CRYSTAL
+            = register("aetherium_crystal",()-> new Item(new Item.Properties()));
+
     static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
         return BM115ItemRegister.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
