@@ -1,6 +1,8 @@
 package com.yuusyaasisutanto.bringme115.content.screen.primitivemachine;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
+import com.yuusyaasisutanto.bringme115.content.network.BM115PrimitiveMachineButtonPacket;
+import com.yuusyaasisutanto.bringme115.content.register.BM115ModMessages;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.components.Tooltip;
@@ -38,8 +40,12 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
                 0,
                 BUTTON1_TEXTURE,
                 (button) -> {
-
+                    onButtonClicked();
                 }))
                 .setTooltip(Tooltip.create(Component.translatable("container.bringme115.primitive_pap.button1")));
+    }
+
+    private void onButtonClicked(){
+        BM115ModMessages.sendToServer(new BM115PrimitiveMachineButtonPacket());
     }
 }

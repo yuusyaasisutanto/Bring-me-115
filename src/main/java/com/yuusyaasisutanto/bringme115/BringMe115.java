@@ -2,6 +2,7 @@ package com.yuusyaasisutanto.bringme115;
 
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombCapability;
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombHandler;
+import com.yuusyaasisutanto.bringme115.content.network.BM115PrimitiveMachineButtonPacket;
 import com.yuusyaasisutanto.bringme115.content.register.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,6 +22,10 @@ public class BringMe115 {
 
     public BringMe115(FMLJavaModLoadingContext context){
         IEventBus bus = context.getModEventBus();
+
+        // パケット通信の登録
+        BM115ModMessages.register();
+
         BM115ItemRegister.REGISTRY.register(bus);
         BM115BlockRegister.REGISTRY.register(bus);
         BM115BlockEntityRegister.REGISTRY.register(bus);
