@@ -1,6 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
+import com.yuusyaasisutanto.bringme115.content.items.aetherium_crystal.BM115AetheriumCrystal;
 import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBomb;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -29,7 +30,7 @@ public class BM115ItemRegister {
 
     //PaPCristal
     public static final RegistryObject<Item> AETHERIUM_CRYSTAL
-            = register("aetherium_crystal",()-> new Item(new Item.Properties()));
+            = register("aetherium_crystal",()-> new BM115AetheriumCrystal(new Item.Properties()));
 
     static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block){
         return BM115ItemRegister.register(name, () -> new BlockItem(block.get(), new Item.Properties()));

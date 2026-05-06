@@ -1,6 +1,6 @@
 package com.yuusyaasisutanto.bringme115.content.pap;
 
-public class BM115LevelToDamage {
+public class BM115PaPLevelToDamage {
 
     // NBTから得たPAPレベルをここで数値に変換する
     public static float getPackAPunchedDamage(int paplvl){
