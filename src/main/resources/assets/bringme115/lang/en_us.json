@@ -1,5 +1,11 @@
 {
   "tooltip.bringme115.aetherium_crystal.paplevel_indicator": "PaP level",
   "tooltip.bringme115.aetherium_crystal.paplevel_indicator.none_pap": "NONE",
+  "item.bringme115.aetherium_crystal": "Aetherium Crystal (this name is placeholder)",
+  "item.bringme115.aetherium_crystal.paplevel.0": "Aetherium Crystal - broken data error",
+  "item.bringme115.aetherium_crystal.paplevel.1": "Raw Aetherium Crystal",
+  "item.bringme115.aetherium_crystal.paplevel.2": "Refined Aetherium Crystal",
+  "item.bringme115.aetherium_crystal.paplevel.3": "Flawless Aetherium Crystal",
+  "item.bringme115.aetherium_crystal.paplevel.4": "Eldritch Aetherium Crystal - Level ",
   "itemGroup.bringme115.main": "Bring me 115!"
 }
