@@ -48,17 +48,7 @@ public class BM115AetheriumCrystal extends Item {
     @Override
     public Component getName(ItemStack item) {
 
-        //先に定義、nullる（動詞）を避けるため
-        int PaPLevel = 0;
-
-        if(item.hasTag()) {
-            CompoundTag nbt = item.getTag();
-            if (nbt != null && nbt.contains("BM115Modify")) {
-                //NBTにBM115ModifyのCompoundが含まれている場合、PaPlvlを抽出
-                CompoundTag BM115Modify = nbt.getCompound("BM115Modify");
-                PaPLevel = Math.min(BM115Modify.getInt("PaPlvl"), 4);
-            }
-        }
+        int PaPLevel = getPaPLevel(item);
 
         //PaPLevelが4を超えた場合、?:演算子を利用して改めてレベルを取得して名前に組み込む
         MutableComponent papNameFinallizer =
@@ -71,5 +61,20 @@ public class BM115AetheriumCrystal extends Item {
                 Component.translatable(this.getDescriptionId(item) + ".paplevel." + PaPLevel);
 
         return papNameFinallizer;
+    }
+
+    public static int getPaPLevel(ItemStack item) {
+        //先に定義、nullる（動詞）を避けるため
+        int PaPLevel = 0;
+
+        if(item.hasTag()) {
+            CompoundTag nbt = item.getTag();
+            if (nbt != null && nbt.contains("BM115Modify")) {
+                //NBTにBM115ModifyのCompoundが含まれている場合、PaPlvlを抽出
+                CompoundTag BM115Modify = nbt.getCompound("BM115Modify");
+                PaPLevel = Math.min(BM115Modify.getInt("PaPlvl"), 4);
+            }
+        }
+        return PaPLevel;
     }
 }

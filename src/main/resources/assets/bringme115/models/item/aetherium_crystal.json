@@ -1,0 +1,12 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "bringme115:item/aetherium_crystal_err"
+  },
+  "overrides": [
+    { "predicate": { "bringme115:pap_level_texture": 0.99 }, "model": "bringme115:item/aetherium_crystal_1" },
+    { "predicate": { "bringme115:pap_level_texture": 1.99 }, "model": "bringme115:item/aetherium_crystal_2" },
+    { "predicate": { "bringme115:pap_level_texture": 2.99 }, "model": "bringme115:item/aetherium_crystal_3" },
+    { "predicate": { "bringme115:pap_level_texture": 3.99 }, "model": "bringme115:item/aetherium_crystal_4_more" }
+  ]
+}

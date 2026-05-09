@@ -10,6 +10,8 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,11 +28,6 @@ public abstract class BM115EntityKineticBullet {
 */
     @Unique
     private float bring_Me_115_code$bm115PapDamageModifier = 1.0f;
-
-    @Unique
-    public void setBm115PapDamageModifier(int paplvl) {
-        this.bring_Me_115_code$bm115PapDamageModifier = BM115PaPLevelToDamage.getPackAPunchedDamage(paplvl);
-    }
 
     @Unique
     public int getBm115PapDamageModifier(ItemStack targetGunItem){
@@ -51,8 +48,14 @@ public abstract class BM115EntityKineticBullet {
         //                bring_Me_115_code$bm115PapDamageModifier = setBm115PapDamageModifier(getBm115PapDamageModifier(gunItem));
     }
 
-    @ModifyArg(method = "getDamage", at = @At(value = "INVOKE", target = "Ljava/lang/Math;max(FF)F"), index = 0, remap = false)
+
+    // 1.1.8においてgetDamageメソッドにてMath.maxは2回呼びだされる為、結果として想定してた値を2乗した数値が倍数として入ってしまう
+    // ordinalでReturnに使われる方を指定、成功
+    @ModifyArg(method = "getDamage", at = @At(value = "INVOKE", ordinal = 1, target = "Ljava/lang/Math;max(FF)F"), index = 0, remap = false)
     public float apply115InfusedDamage(float original){
+    //    final Logger logger = (Logger) LogManager.getLogger();
+    //    logger.info("PaP multiplied! - bringme115 log");
+
         return original * this.bring_Me_115_code$bm115PapDamageModifier;
     }
 }
