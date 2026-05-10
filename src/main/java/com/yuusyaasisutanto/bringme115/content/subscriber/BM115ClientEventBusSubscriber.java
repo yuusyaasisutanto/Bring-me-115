@@ -3,6 +3,7 @@ package com.yuusyaasisutanto.bringme115.content.subscriber;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.items.aetherium_crystal.BM115AetheriumCrystal;
+import com.yuusyaasisutanto.bringme115.content.pap.itemicon.BM115ItemIconPaPLevelindicator;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ScreenRegister;
 import com.yuusyaasisutanto.bringme115.content.screen.primitivemachine.BM115PrimitivePaPScreen;
@@ -17,6 +18,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
+import static com.tacz.guns.init.ModItems.MODERN_KINETIC_GUN;
 import static com.yuusyaasisutanto.bringme115.content.items.aetherium_crystal.BM115AetheriumCrystal.getPaPLevel;
 
 @Mod.EventBusSubscriber(modid = BringMe115.ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT )
@@ -45,7 +47,9 @@ public class BM115ClientEventBusSubscriber {
 
     }
 
-    private static void renderPaPLevelToPaPedItem(){
-
+    @SubscribeEvent
+    public static void renderPaPLevelToPaPedItem(RegisterItemDecorationsEvent event){
+        event.register(BM115ItemRegister.AETHERIUM_CRYSTAL.get(), new BM115ItemIconPaPLevelindicator());
+        event.register(MODERN_KINETIC_GUN.get(), new BM115ItemIconPaPLevelindicator());
     }
 }
