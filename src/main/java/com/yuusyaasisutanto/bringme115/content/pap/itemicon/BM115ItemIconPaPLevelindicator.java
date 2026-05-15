@@ -22,6 +22,7 @@ public class BM115ItemIconPaPLevelindicator implements IItemDecorator {
 
             if (papLevel > 0){
                 String papLevelText = String.valueOf(papLevel);
+                String papPaPText = "PaP";
                 int textWidth = font.width(papLevelText);
 
                 // アイコンを一旦
@@ -43,10 +44,12 @@ public class BM115ItemIconPaPLevelindicator implements IItemDecorator {
                 for (int dx = -1; dx <= 1; dx++) {
                     for (int dy = -1; dy <= 1; dy++) {
                         if (dx == 0 && dy == 0) continue; // 中央（メイン文字）は飛ばす
-                        guiGraphics.drawString(font, papLevelText, scaledXoffset + (dx * 0.8F), scaledYoffset + (dy * 0.8F), timeBasedEdgeColor, false);
+                        guiGraphics.drawString(font, papPaPText, scaledXoffset + (dx * 0.8F), scaledYoffset + (dy * 0.8F) , timeBasedEdgeColor, false);
+                        guiGraphics.drawString(font, papLevelText, scaledXoffset + (dx * 0.8F), scaledYoffset + (dy * 0.8F) + 9, timeBasedEdgeColor, false);
                     }
                 }
-                guiGraphics.drawString(font, papLevelText, scaledXoffset, scaledYoffset, 0xffffff, false);
+                guiGraphics.drawString(font, papPaPText, scaledXoffset, scaledYoffset, 0xffffff, false);
+                guiGraphics.drawString(font, papLevelText, scaledXoffset, scaledYoffset + 9, 0xffffff, false);
 
                 guiGraphics.pose().popPose();
             }
@@ -73,6 +76,7 @@ public class BM115ItemIconPaPLevelindicator implements IItemDecorator {
 
         // ARGB形式で返す (不透明度はFF)
         // Geminiに任せっぱなしなんだけど、さすがにビットシフト演算子は今の自分じゃ扱える気がしなかった
+        // ↑数日たってようやく飲み込めた、二進数に収めてるんだわ
         return (255 << 24) | (colorR << 16) | (colorG << 8) | colorB;
     }
 
