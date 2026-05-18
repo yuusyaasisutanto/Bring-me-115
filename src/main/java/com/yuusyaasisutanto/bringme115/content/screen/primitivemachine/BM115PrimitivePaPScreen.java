@@ -48,4 +48,18 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
     private void onButtonClicked(){
         BM115ModMessages.sendToServer(new BM115PrimitiveMachineButtonPacket());
     }
+
+
+    // ツールチップなどの描写
+    @Override
+    public void render(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+
+        // 背景暗転
+        this.renderBackground(guiGraphics);
+
+        super.render(guiGraphics, mouseX, mouseY, partialTick);
+
+        // ツールチップの描写
+        this.renderTooltip(guiGraphics, mouseX, mouseY);
+    }
 }

@@ -7,5 +7,6 @@
   "item.bringme115.aetherium_crystal.paplevel.2": "Refined Aetherium Crystal",
   "item.bringme115.aetherium_crystal.paplevel.3": "Flawless Aetherium Crystal",
   "item.bringme115.aetherium_crystal.paplevel.4": "Eldritch Aetherium Crystal - Level ",
-  "itemGroup.bringme115.main": "Bring me 115!"
+  "itemGroup.bringme115.main": "Bring me 115!",
+  "container.bringme115.primitive_pap.button1": "Click to Pack a Punch!"
 }

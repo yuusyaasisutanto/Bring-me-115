@@ -28,7 +28,6 @@ public class BM115PrimitiveMachineButtonPacket {
 
     // エンコード
     public void toBytes(FriendlyByteBuf buffer){
-
     }
 
     // サーバー処理内容
@@ -43,7 +42,7 @@ public class BM115PrimitiveMachineButtonPacket {
                 tryInfusing115toWeapon(player);
             };
                 // テスト用にplayerにシステムメッセージを送りつける
-                player.sendSystemMessage(Component.literal("PaPing..."));
+                //player.sendSystemMessage(Component.literal("PaPing..."));
             });
 
         context.setPacketHandled(true);

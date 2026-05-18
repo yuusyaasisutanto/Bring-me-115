@@ -1,15 +1,12 @@
 package com.yuusyaasisutanto.bringme115.content.pap;
 
-import com.yuusyaasisutanto.bringme115.content.items.aetherium_crystal.BM115AetheriumCrystal;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import com.yuusyaasisutanto.bringme115.content.screen.primitivemachine.BM115PrimitivePaPMenu;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.item.ItemStack;
-import org.apache.commons.lang3.concurrent.Computable;
 
 import static com.yuusyaasisutanto.bringme115.content.screen.primitivemachine.BM115PrimitivePaPMenu.TE_INVENTORY_FIRST_SLOT_INDEX;
 
