@@ -29,6 +29,11 @@ public class BM115AetheriumCrystal extends Item {
     }
 
     @Override
+    public boolean isFoil(ItemStack p_41453_) {
+        return true;
+    }
+
+    @Override
     public void appendHoverText(ItemStack item, @Nullable Level level, List<Component> tooltiplist, TooltipFlag flag) {
         MutableComponent PAP_LEVEL_INDICATOR = Component.translatable("tooltip.bringme115.aetherium_crystal.paplevel_indicator");
         MutableComponent PAP_LEVEL_NONE = Component.translatable("tooltip.bringme115.aetherium_crystal.paplevel_indicator.none_pap");
