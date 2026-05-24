@@ -1,9 +1,8 @@
 package com.yuusyaasisutanto.bringme115;
 
 import com.yuusyaasisutanto.bringme115.content.config.BM115ConfigBuilder;
-import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombCapability;
-import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBombHandler;
-import com.yuusyaasisutanto.bringme115.content.network.BM115PrimitiveMachineButtonPacket;
+import com.yuusyaasisutanto.bringme115.content.items.implemented.testbomb.BM115TestItemBombCapability;
+import com.yuusyaasisutanto.bringme115.content.items.implemented.testbomb.BM115TestItemBombHandler;
 import com.yuusyaasisutanto.bringme115.content.pap.BM115PaPLevelToDamage;
 import com.yuusyaasisutanto.bringme115.content.register.*;
 import net.minecraft.world.item.ItemStack;

@@ -1,10 +1,11 @@
 package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
-import com.yuusyaasisutanto.bringme115.content.items.aetherium_crystal.BM115AetheriumCrystal;
-import com.yuusyaasisutanto.bringme115.content.items.testbomb.BM115TestItemBomb;
+import com.yuusyaasisutanto.bringme115.content.items.implemented.aetherium_crystal.BM115AetheriumCrystal;
+import com.yuusyaasisutanto.bringme115.content.items.implemented.testbomb.BM115TestItemBomb;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -27,6 +28,14 @@ public class BM115ItemRegister {
 
     public static final RegistryObject<Item> TESTIMP
             = register("testimp",()-> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ELEMENT115
+            = register("element115",()-> new Item(new Item.Properties()){
+        @Override
+        public boolean isFoil(ItemStack p_41453_) {
+            return true;
+        }
+    });
 
     //PaPCristal
     public static final RegistryObject<Item> AETHERIUM_CRYSTAL

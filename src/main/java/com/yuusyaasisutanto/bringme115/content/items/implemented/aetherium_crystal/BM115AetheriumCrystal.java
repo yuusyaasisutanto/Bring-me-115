@@ -1,6 +1,6 @@
-package com.yuusyaasisutanto.bringme115.content.items.aetherium_crystal;
+package com.yuusyaasisutanto.bringme115.content.items.implemented.aetherium_crystal;
 
-import net.minecraft.ChatFormatting;
+import com.yuusyaasisutanto.bringme115.content.items.interfaces.ICreativeTabVariantsItem;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -11,10 +11,13 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class BM115AetheriumCrystal extends Item {
+import static com.yuusyaasisutanto.bringme115.content.pap.BM115PaPLevelToDamage.PAP_DAMAGE_MAP;
+
+public class BM115AetheriumCrystal extends Item implements ICreativeTabVariantsItem {
 
     public BM115AetheriumCrystal(Properties p_41383_) {
         super(p_41383_);
@@ -90,5 +93,24 @@ public class BM115AetheriumCrystal extends Item {
             }
         }
         return PaPLevel;
+    }
+
+    // クリエイティブタブ用に
+    @Override
+    public List<ItemStack> getTabVariants() {
+        List<ItemStack> variants = new ArrayList<>();
+
+        // コンフィグによってPaPレベルが増減するのを想定して増減したものをタブに並ばせようとしたが
+        // コンフィグのロードとクリエイティブタブの初期化が必ずしも想定順に並ぶとは限らないため、一先ず固定数を表示することにした
+        // ワールドのリログによって再読み込みさせる機構を組めるらしいが、あまり開発者的には胃に優しくなさそうだ
+        for (int i = 0; i < 4; i++) {
+            ItemStack stack = new ItemStack(this);
+
+            stack.getOrCreateTagElement("BM115Modify").putInt("PaPlvl", i + 1);
+
+            variants.add(stack);
+        }
+
+        return variants;
     }
 }

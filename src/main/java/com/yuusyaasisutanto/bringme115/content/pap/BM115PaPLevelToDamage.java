@@ -9,9 +9,9 @@ import static com.yuusyaasisutanto.bringme115.content.config.BM115ConfigBuilder.
 
 public class BM115PaPLevelToDamage {
     // コンフィグから読み込んだものをおっぴろげるところ
-    private static final Map<Integer, Float> PAP_DAMAGE_MAP = new HashMap<>();
+    public static final Map<Integer, Float> PAP_DAMAGE_MAP = new HashMap<>();
     // こっちは特定数字用
-    private static final Map<Integer, Float> SPECIFIED_PAP_DAMAGE_MAP = new HashMap<>();
+    public static final Map<Integer, Float> SPECIFIED_PAP_DAMAGE_MAP = new HashMap<>();
 
     // 毎回ロード時やリロード時に呼び出される予定のメソッド
     public static void loadMultipliersFromConfig(){
