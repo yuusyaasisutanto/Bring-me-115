@@ -1,0 +1,74 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#under_texture"
+        },
+        "east": {
+          "texture": "#under_texture"
+        },
+        "north": {
+          "texture": "#under_texture"
+        },
+        "south": {
+          "texture": "#under_texture"
+        },
+        "up": {
+          "texture": "#under_texture"
+        },
+        "west": {
+          "texture": "#under_texture"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#mask_texture"
+        },
+        "east": {
+          "texture": "#mask_texture"
+        },
+        "north": {
+          "texture": "#mask_texture"
+        },
+        "south": {
+          "texture": "#mask_texture"
+        },
+        "up": {
+          "texture": "#mask_texture"
+        },
+        "west": {
+          "texture": "#mask_texture"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "textures": {
+    "mask_texture": "bringme115:block/deepslate_element115_ore_mask",
+    "particle": "minecraft:block/deepslate",
+    "under_texture": "bringme115:block/elemental115_base"
+  }
+}

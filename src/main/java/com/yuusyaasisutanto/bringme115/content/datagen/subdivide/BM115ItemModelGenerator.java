@@ -1,14 +1,17 @@
 package com.yuusyaasisutanto.bringme115.content.datagen.subdivide;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
+import com.yuusyaasisutanto.bringme115.content.register.BM115BlockRegister;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
+import org.apache.commons.compress.compressors.lz77support.LZ77Compressor;
 
 public class BM115ItemModelGenerator extends ItemModelProvider {
 
@@ -17,19 +20,33 @@ public class BM115ItemModelGenerator extends ItemModelProvider {
         super(output, BringMe115.ID, existingFileHelper);
     }
 
+    // メインのDatagen用メソッド
     @Override
     protected void registerModels() {
 
         simpleItem(BM115ItemRegister.ELEMENT115);
 
+        //blockのアイテム化
+        blockItem(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE);
+
         // BM115ItemRegister.AETHERIUM_CRYSTAL専用の枠
         forAetheriumCrystalBuilingUp();
     }
+
+
+
+    // 以下設定用ヘルパーメソッド
 
     private void simpleItem(RegistryObject<Item> item){
         withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(BringMe115.ID, "item/" + item.getId().getPath()));
+    }
+
+    private void blockItem(RegistryObject<Block> block){
+        String blockName = String.valueOf(block.getId().getPath());
+        System.out.println(blockName);
+        withExistingParent(blockName, new ResourceLocation(BringMe115.ID, "block/" + blockName));
     }
 
     private void forAetheriumCrystalBuilingUp(){

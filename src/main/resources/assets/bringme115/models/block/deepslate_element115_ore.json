@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all":"bringme115:block/deepslate_element115_ore"
-  }
-}

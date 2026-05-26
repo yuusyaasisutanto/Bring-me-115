@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "bringme115:block/primitive_machine",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "bringme115:block/primitive_machine"
+    },
+    "facing=south": {
+      "model": "bringme115:block/primitive_machine",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "bringme115:block/primitive_machine",
+      "y": 270
+    }
+  }
+}

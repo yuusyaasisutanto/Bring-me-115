@@ -18,10 +18,14 @@ public class BM115BlockRegister {
     public static final DeferredRegister<Block> REGISTRY
             = DeferredRegister.create(ForgeRegistries.BLOCKS, BringMe115.ID);
 
+
+
     public static final RegistryObject<Block> PRIMITIVE_MACHINE
             = registerBlock("primitive_machine", () -> new BM115PrimitiveMachineBlock(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion()));
     public static final RegistryObject<Block> DEEPSLATE_ELEMENT115_ORE
-            = registerBlock("deepslate_element115_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
+            = registerBlock("deepslate_element115_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE).noOcclusion()));
+
+
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = REGISTRY.register(name, block);
