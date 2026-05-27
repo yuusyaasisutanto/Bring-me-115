@@ -27,5 +27,8 @@ public class BM115DataGenHeadQuarter {
             generator.addProvider(true, new BM115BlockStateGenerator(output, existingFileHelper));
             generator.addProvider(true, new BM115ItemModelGenerator(output, existingFileHelper));
         }
+
+        if (event.includeServer()){
+        }
     }
 }

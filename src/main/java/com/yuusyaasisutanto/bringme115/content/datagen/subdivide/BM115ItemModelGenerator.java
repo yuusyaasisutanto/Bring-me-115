@@ -28,6 +28,7 @@ public class BM115ItemModelGenerator extends ItemModelProvider {
 
         //blockのアイテム化
         blockItem(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE);
+        blockItem(BM115BlockRegister.RAW_ELEMENT115_BLOCK);
 
         // BM115ItemRegister.AETHERIUM_CRYSTAL専用の枠
         forAetheriumCrystalBuilingUp();

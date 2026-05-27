@@ -22,9 +22,13 @@ public class BM115BlockStateGenerator extends BlockStateProvider {
         // 使いまわす用の115きらめき用テクスチャのpathを通す、ﾊﾟｽｯw（パスを通す音）
         String element115BaseGrow = "block/elemental115_base";
         // 破壊パーティクルはバニラのものも使えるように意図的に広めにとってある。
-        String particleTexture = "minecraft:block/deepslate";
+        String particleTexture = "";
 
+        particleTexture = "minecraft:block/deepslate";
         dualLayeredBlock(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE, element115BaseGrow, "deepslate_element115_ore_mask", particleTexture );
+
+        particleTexture = "bringme115:block/elemental115_base";
+        dualLayeredBlock(BM115BlockRegister.RAW_ELEMENT115_BLOCK, element115BaseGrow, "raw_element115_block_mask", particleTexture );
 
 
 
