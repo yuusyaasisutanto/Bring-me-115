@@ -91,7 +91,9 @@ public class BM115ClientEventBusMODSubscriber {
     // 一括で処理するヘルパーメソッドをこっちで作成
     private static void transBlockRenderTypeSetting(RegistryObject<Block> blockRegistryObject){
         Block block = blockRegistryObject.get();
-        ItemBlockRenderTypes.setRenderLayer(block, RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(block,
+                renderType -> renderType == RenderType.translucent() || renderType == RenderType.solid()
+        );
 
         TRANS_BLOCK_LIST.add(block);
     }
