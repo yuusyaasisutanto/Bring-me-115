@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "bringme115:item/raw_element115_mask",
+    "layer1": "bringme115:item/raw_element115_overlay"
+  }
+}

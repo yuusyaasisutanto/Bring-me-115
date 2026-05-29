@@ -84,6 +84,7 @@ public class BM115ClientEventBusMODSubscriber {
 
 
         // translucent(生アルファ) - 視線を合わせた時に枠線に沿ってテクスチャが透明化する。現行だと多分解決しない。
+        // ↑renderTypeをマルチパスにすることによって解決、内部がSolidになるブロックであればの話だが
         transBlockRenderTypeSetting(BM115BlockRegister.RAW_ELEMENT115_BLOCK);
     }
 
@@ -101,23 +102,24 @@ public class BM115ClientEventBusMODSubscriber {
 
     // 内部処理用インタークラス
     // 一つのヘルパーメソッドに処理を統合するためここで指定
-    @Mod.EventBusSubscriber(modid = BringMe115.ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT )
-    public static class internalFORGESubscriber {
-
-        @SubscribeEvent
-        public static void onRenderHighlight(RenderHighlightEvent.Block event){
-            BlockPos pos = event.getTarget().getBlockPos();
-            BlockState state = event.getCamera().getEntity().level().getBlockState(pos);
-
-            if (TRANS_BLOCK_LIST.contains(state.getBlock())){
-                // System.out.println("getblock worked");
-                // 視線を向けた時の枠線部分が透明になっちゃうのをどうにかしたかったけど
-                // 無理だったのを経験として残すだけ残しておく場所
-                // 今後のアプデとかで消す可能性は大
-            }
-        }
-
-    }
+//    @Mod.EventBusSubscriber(modid = BringMe115.ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT )
+//    public static class internalFORGESubscriber {
+//
+//        @SubscribeEvent
+//        public static void onRenderHighlight(RenderHighlightEvent.Block event){
+//            BlockPos pos = event.getTarget().getBlockPos();
+//            BlockState state = event.getCamera().getEntity().level().getBlockState(pos);
+//
+//            if (TRANS_BLOCK_LIST.contains(state.getBlock())){
+//                // System.out.println("getblock worked");
+//                // 視線を向けた時の枠線部分が透明になっちゃうのをどうにかしたかったけど
+//                // 無理だったのを経験として残すだけ残しておく場所
+//                // 今後のアプデとかで消す可能性は大
+//                // ↑解決済み、少なくとも内部テクスチャが非透過であれば問題ない
+//            }
+//        }
+//
+//    }
 }
 
 

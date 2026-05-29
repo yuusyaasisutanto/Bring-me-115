@@ -11,7 +11,6 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
-import org.apache.commons.compress.compressors.lz77support.LZ77Compressor;
 
 public class BM115ItemModelGenerator extends ItemModelProvider {
 
@@ -23,8 +22,12 @@ public class BM115ItemModelGenerator extends ItemModelProvider {
     // メインのDatagen用メソッド
     @Override
     protected void registerModels() {
+        // 特にひねりがない物をそのまま登録するとこ
+        simpleItem(BM115ItemRegister.ELEMENT115_VIAL);
 
-        simpleItem(BM115ItemRegister.ELEMENT115);
+        // 2層目にelement115のきらめきを挟むアイテム
+        // 形式的には別に普通のJsonファイルが出るが、こっちでわかりやすくするためにメソッド化して渡しとく
+        forElement115GrowingInItem(BM115ItemRegister.RAW_ELEMENT115,"raw_element115_mask","raw_element115_overlay");
 
         //blockのアイテム化
         blockItem(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE);
@@ -48,6 +51,31 @@ public class BM115ItemModelGenerator extends ItemModelProvider {
         String blockName = String.valueOf(block.getId().getPath());
         System.out.println(blockName);
         withExistingParent(blockName, new ResourceLocation(BringMe115.ID, "block/" + blockName));
+    }
+
+
+
+    private void forElement115GrowingInItem(RegistryObject<Item> itemRegistryObject, String maskTexture, String ovarlayTexture){
+        String itemName = itemRegistryObject.getId().getPath();
+
+        withExistingParent(itemName, "item/generated")
+                .texture("layer0", new ResourceLocation(BringMe115.ID, "item/" + maskTexture))
+                .texture("layer1", new ResourceLocation(BringMe115.ID, "item/" + ovarlayTexture));
+        // ↓Geminiに聞きながら「layer0でマスククリッピングを行った後にlayer1を重ねる描写」をDatagenで行おうと試みた際のゴミ共
+        // 試行錯誤の跡として、自分がこの失敗を忘れた時に思い出せるように残しておく予定
+//        ItemModelBuilder innerModel = withExistingParent(itemName + "_inner", new ResourceLocation("item/generated"))
+//                .texture("layer0", new ResourceLocation(BringMe115.ID, "block/elemental115_base"));
+//
+//        getBuilder(itemName)
+//                .customLoader((itemModelBuilder, existingFileHelper) ->
+//                        itemModelBuilder.child())
+
+//        getBuilder(itemName)
+//                .customLoader()
+//        withExistingParent(itemName, new ResourceLocation("item/generated"))
+//                .texture("layer0", new ResourceLocation(BringMe115.ID, "item/" + maskTexture))
+//                .texture("layer1", new ResourceLocation(BringMe115.ID, "item/elemental115_base"))
+//                .texture("layer2",new ResourceLocation(BringMe115.ID, "item/" + ovarlayTexture));
     }
 
     private void forAetheriumCrystalBuilingUp(){

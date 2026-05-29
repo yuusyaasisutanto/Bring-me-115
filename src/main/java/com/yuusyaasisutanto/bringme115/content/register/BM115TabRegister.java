@@ -16,7 +16,7 @@ public class BM115TabRegister {
 
     public static final RegistryObject<CreativeModeTab> MAIN = REGISTRY.register("main", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.bringme115.main"))
-            .icon(() -> new ItemStack(BM115ItemRegister.ELEMENT115.get()))
+            .icon(() -> new ItemStack(BM115ItemRegister.ELEMENT115_VIAL.get()))
             .displayItems((parameters, output) -> {
                 BM115ItemRegister.MAIN.forEach(object -> {
                     // 一旦格納させる

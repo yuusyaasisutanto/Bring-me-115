@@ -2,6 +2,7 @@ package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.items.implemented.aetherium_crystal.BM115AetheriumCrystal;
+import com.yuusyaasisutanto.bringme115.content.items.implemented.element115related.BM115Element115MaskedItem;
 import com.yuusyaasisutanto.bringme115.content.items.implemented.testbomb.BM115TestItemBomb;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -29,13 +30,16 @@ public class BM115ItemRegister {
     public static final RegistryObject<Item> TESTIMP
             = register("testimp",()-> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> ELEMENT115
-            = register("element115",()-> new Item(new Item.Properties()){
+    public static final RegistryObject<Item> ELEMENT115_VIAL
+            = register("element115_vial",()-> new Item(new Item.Properties()){
         @Override
         public boolean isFoil(ItemStack p_41453_) {
             return true;
         }
     });
+
+    public static final RegistryObject<Item> RAW_ELEMENT115
+            = register("raw_element115",()-> new BM115Element115MaskedItem(new Item.Properties()));
 
     //PaPCristal
     public static final RegistryObject<Item> AETHERIUM_CRYSTAL
