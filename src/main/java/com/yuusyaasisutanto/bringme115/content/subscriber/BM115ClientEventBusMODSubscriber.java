@@ -15,11 +15,17 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RegisterItemDecorationsEvent;
 import net.minecraftforge.client.event.RenderHighlightEvent;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.common.brewing.IBrewingRecipe;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -42,6 +48,29 @@ public class BM115ClientEventBusMODSubscriber {
             blockScreenRegister();
             setAetheriumCrystalTextureChangingByNBT();
             setMultiLayerBlockRenderTypeToTrans();
+            setBrewingRecipe();
+        });
+    }
+
+
+    // なぜここだけJSONじゃないねん！！！！！！！！アホ！！！！！！！！！！
+    private static void setBrewingRecipe() {
+        // element115の簡易精製
+        BrewingRecipeRegistry.addRecipe(new IBrewingRecipe() {
+            @Override
+            public boolean isInput(ItemStack input) {
+                return input.is(Items.POTION) && PotionUtils.getPotion(input) == Potions.AWKWARD;
+            }
+
+            @Override
+            public boolean isIngredient(ItemStack ingredient) {
+                return ingredient.is(BM115ItemRegister.RAW_ELEMENT115.get());
+            }
+
+            @Override
+            public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
+                return isInput(input) && isIngredient(ingredient) ? new ItemStack(BM115ItemRegister.ELEMENT115_VIAL.get()) : ItemStack.EMPTY;
+            }
         });
     }
 
