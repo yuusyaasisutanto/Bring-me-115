@@ -164,6 +164,14 @@ dependencies {
     // library for Kubejs 2
     runtimeOnly fg.deobf("curse.maven:rhino-416294:6186971")
 
+    // Jade-1.20.1-Forge-11.13.2.jar
+    // for debug
+    runtimeOnly fg.deobf("curse.maven:jade-324717:6855440")
+
+    // jei-1.20.1-forge-15.20.0.130.jar
+    // for debug
+    runtimeOnly fg.deobf("curse.maven:jei-238222:7920915")
+
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
