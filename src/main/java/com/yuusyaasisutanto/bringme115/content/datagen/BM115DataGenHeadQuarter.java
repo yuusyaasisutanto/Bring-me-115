@@ -1,8 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.datagen;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
-import com.yuusyaasisutanto.bringme115.content.datagen.subdivide.BM115BlockStateGenerator;
-import com.yuusyaasisutanto.bringme115.content.datagen.subdivide.BM115ItemModelGenerator;
+import com.yuusyaasisutanto.bringme115.content.datagen.subdivide.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -23,12 +22,18 @@ public class BM115DataGenHeadQuarter {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
+        BM115BlockTagGenerator blockTags = new BM115BlockTagGenerator(output, lookupProvider, existingFileHelper);
+
         if (event.includeClient()){
             generator.addProvider(true, new BM115BlockStateGenerator(output, existingFileHelper));
             generator.addProvider(true, new BM115ItemModelGenerator(output, existingFileHelper));
         }
 
         if (event.includeServer()){
+            generator.addProvider(true, BM115LootTableGenerator.create(output));
+            generator.addProvider(true, blockTags);
+            generator.addProvider(true, new BM115ItemTagGenerator(output, lookupProvider, blockTags.contentsGetter(), existingFileHelper));
+            generator.addProvider(true, new BM115RecipeGenerator(output));
         }
     }
 }

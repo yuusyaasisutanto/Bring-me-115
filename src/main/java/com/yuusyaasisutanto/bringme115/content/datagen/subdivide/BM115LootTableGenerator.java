@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 public class BM115LootTableGenerator {
+
     public static LootTableProvider create(PackOutput output){
             return new LootTableProvider(
                     output,
