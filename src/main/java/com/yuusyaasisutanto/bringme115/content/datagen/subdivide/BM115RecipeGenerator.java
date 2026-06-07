@@ -1,14 +1,20 @@
 package com.yuusyaasisutanto.bringme115.content.datagen.subdivide;
 
+import com.google.gson.JsonObject;
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.register.BM115BlockRegister;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraftforge.common.crafting.StrictNBTIngredient;
+import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class BM115RecipeGenerator extends RecipeProvider {
@@ -34,6 +40,42 @@ public class BM115RecipeGenerator extends RecipeProvider {
                 // すべてをsaveし書き出す
                 .save(consumer);
 
+        // primitive_machine
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, BM115BlockRegister.PRIMITIVE_MACHINE.get())
+                // パターン列
+                .pattern(" A ")
+                .pattern("BCB")
+                .pattern("D D")
+                // 記号の定義、冒頭はChar型である（ダブルクォーテーションはString型）
+                .define('A', Items.BOOK)
+                .define('B', BM115ItemRegister.ELEMENT115_VIAL.get())
+                .define('C', Items.OBSIDIAN)
+                .define('D', Ingredient.of(ItemTags.WOODEN_FENCES))
+                // レシピの解放条件、今回はraw_element115の入手時
+                .unlockedBy("has_element115_vial", has(BM115ItemRegister.ELEMENT115_VIAL.get()))
+                // すべてをsaveし書き出す
+                .save(consumer);
+
+        // raw element115の活性化レシピ
+        // activated_element115
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, BM115ItemRegister.ACTIVATED_ELEMENT115.get())
+                // パターン列
+                .pattern("ACA")
+                .pattern("BDB")
+                .pattern("ABA")
+                // 記号の定義、冒頭はChar型である（ダブルクォーテーションはString型）
+                .define('A', Items.CHORUS_FRUIT)
+                .define('B', BM115ItemRegister.ELEMENT115_VIAL.get())
+                .define('C', Items.JUKEBOX)
+                .define('D', BM115ItemRegister.RAW_ELEMENT115.get())
+                // レシピの解放条件、今回はraw_element115の入手時
+                .unlockedBy("has_element115_vial", has(BM115ItemRegister.ELEMENT115_VIAL.get()))
+                // すべてをsaveし書き出す
+                .save(consumer);
+
+
+        // -----------------------------------------------------------
+
         // Shapeless
         // カテゴリ,成果物,出力数
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, BM115ItemRegister.RAW_ELEMENT115.get(), 9)
@@ -42,6 +84,159 @@ public class BM115RecipeGenerator extends RecipeProvider {
                 .unlockedBy("has_raw_element115", has(BM115ItemRegister.RAW_ELEMENT115.get()))
                 // 同じ出力物でレシピ被りが起こった場合の内部での混乱を防ぐために独自IDを設定
                 .save(consumer, BringMe115.ID + ":unpacking_raw_element115_block");
+
+        // -----------------------------------------------------------
+
+        // PaP Crystal
+
+        // Level 1
+        ItemStack outputPaP1Crystal = new ItemStack(BM115ItemRegister.AETHERIUM_CRYSTAL.get());
+        outputPaP1Crystal.getOrCreateTagElement("BM115Modify").putInt("PaPlvl", 1);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, outputPaP1Crystal.getItem(), 1)
+                // 要求
+                .requires(BM115BlockRegister.RAW_ELEMENT115_BLOCK.get())
+                .requires(Items.CLAY_BALL)
+                .requires(Items.SAND)
+                .requires(Items.PAPER)
+                .unlockedBy("has_raw_element115", has(BM115ItemRegister.RAW_ELEMENT115.get()))
+                .save(new Consumer<>() {
+                    @Override
+                    public void accept(FinishedRecipe finishedRecipe) {
+                        consumer.accept(new FinishedRecipe() {
+                            @Override
+                            public void serializeRecipeData(JsonObject json) {
+                                finishedRecipe.serializeRecipeData(json);
+                                json.getAsJsonObject("result").addProperty("nbt",outputPaP1Crystal.getTag().toString());
+                            }
+
+                            @Override
+                            public ResourceLocation getId() {
+                                // IDだけ変更、そのままだとアイテム名で登録されてしまうためNBTで管理できないため
+                                return new ResourceLocation(BringMe115.ID, "aetherium_crystal_1");
+                            }
+
+                            @Override
+                            public RecipeSerializer<?> getType() {
+                                return finishedRecipe.getType();
+                            }
+
+                            @Override
+                            public @Nullable JsonObject serializeAdvancement() {
+                                return finishedRecipe.serializeAdvancement();
+                            }
+
+                            @Override
+                            public @Nullable ResourceLocation getAdvancementId() {
+                                return finishedRecipe.getAdvancementId();
+                            }
+                        });
+                    }
+                });
+
+        // Level 2
+        ItemStack outputPaP2Crystal = new ItemStack(BM115ItemRegister.AETHERIUM_CRYSTAL.get());
+        outputPaP2Crystal.getOrCreateTagElement("BM115Modify").putInt("PaPlvl", 2);
+
+        Ingredient ingredientPaP1Crystal = StrictNBTIngredient.of(outputPaP1Crystal);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, outputPaP2Crystal.getItem())
+                // パターン列
+                .pattern("ABA")
+                .pattern("ACA")
+                .pattern("ABA")
+                // 記号の定義、冒頭はChar型である（ダブルクォーテーションはString型）
+                .define('A', BM115ItemRegister.ELEMENT115_VIAL.get())
+                .define('B', Items.AMETHYST_CLUSTER)
+                .define('C', ingredientPaP1Crystal)
+                // レシピの解放条件、今回はraw_element115の入手時
+                .unlockedBy("has_raw_element115", has(BM115ItemRegister.RAW_ELEMENT115.get()))
+                .save(new Consumer<>() {
+                    @Override
+                    public void accept(FinishedRecipe finishedRecipe) {
+                        consumer.accept(new FinishedRecipe() {
+                            @Override
+                            public void serializeRecipeData(JsonObject json) {
+                                finishedRecipe.serializeRecipeData(json);
+                                json.getAsJsonObject("result").addProperty("nbt", outputPaP2Crystal.getTag().toString());
+                            }
+
+                            @Override
+                            public ResourceLocation getId() {
+                                // IDだけ変更、そのままだとアイテム名で登録されてしまうためNBTで管理できないため
+                                return new ResourceLocation(BringMe115.ID, "aetherium_crystal_2");
+                            }
+
+                            @Override
+                            public RecipeSerializer<?> getType() {
+                                return finishedRecipe.getType();
+                            }
+
+                            @Override
+                            public @Nullable JsonObject serializeAdvancement() {
+                                return finishedRecipe.serializeAdvancement();
+                            }
+
+                            @Override
+                            public @Nullable ResourceLocation getAdvancementId() {
+                                return finishedRecipe.getAdvancementId();
+                            }
+                        });
+                    }
+                });
+
+        // Level 3
+        ItemStack outputPaP3Crystal = new ItemStack(BM115ItemRegister.AETHERIUM_CRYSTAL.get());
+        outputPaP3Crystal.getOrCreateTagElement("BM115Modify").putInt("PaPlvl", 3);
+
+        Ingredient ingredientPaP2Crystal = StrictNBTIngredient.of(outputPaP2Crystal);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, outputPaP3Crystal.getItem())
+                // パターン列
+                .pattern("EBE")
+                .pattern("ACA")
+                .pattern("DBD")
+                // 記号の定義、冒頭はChar型である（ダブルクォーテーションはString型）
+                .define('A', BM115ItemRegister.ACTIVATED_ELEMENT115.get())
+                .define('B', Items.AMETHYST_CLUSTER)
+                .define('C', ingredientPaP2Crystal)
+                .define('D', Items.SCULK_SENSOR)
+                .define('E', Items.NETHER_STAR)
+                // レシピの解放条件、今回はraw_element115の入手時
+                .unlockedBy("has_raw_element115", has(BM115ItemRegister.RAW_ELEMENT115.get()))
+                .save(new Consumer<>() {
+                    @Override
+                    public void accept(FinishedRecipe finishedRecipe) {
+                        consumer.accept(new FinishedRecipe() {
+                            @Override
+                            public void serializeRecipeData(JsonObject json) {
+                                finishedRecipe.serializeRecipeData(json);
+                                json.getAsJsonObject("result").addProperty("nbt", outputPaP3Crystal.getTag().toString());
+                            }
+
+                            @Override
+                            public ResourceLocation getId() {
+                                // IDだけ変更、そのままだとアイテム名で登録されてしまうためNBTで管理できないため
+                                return new ResourceLocation(BringMe115.ID, "aetherium_crystal_3");
+                            }
+
+                            @Override
+                            public RecipeSerializer<?> getType() {
+                                return finishedRecipe.getType();
+                            }
+
+                            @Override
+                            public @Nullable JsonObject serializeAdvancement() {
+                                return finishedRecipe.serializeAdvancement();
+                            }
+
+                            @Override
+                            public @Nullable ResourceLocation getAdvancementId() {
+                                return finishedRecipe.getAdvancementId();
+                            }
+                        });
+                    }
+                });
 
 
         // 今回は使わないかもしれないが、覚えておきたいレシピの構築

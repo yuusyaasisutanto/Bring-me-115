@@ -8,8 +8,8 @@ import net.minecraftforge.event.AttachCapabilitiesEvent;
 
 public class BM115TestItemBombHandler {
     public static void attach(AttachCapabilitiesEvent<ItemStack> event){
-        if (event.getObject().is(BM115ItemRegister.CODINGPRACTICE.get())){
-            event.addCapability(ResourceLocation.fromNamespaceAndPath(BringMe115.ID, "testbomb"), new BM115TestItemBombCapability());
-        }
+//        if (event.getObject().is(BM115ItemRegister.CODINGPRACTICE.get())){
+//            event.addCapability(ResourceLocation.fromNamespaceAndPath(BringMe115.ID, "testbomb"), new BM115TestItemBombCapability());
+//        }
     }
 }

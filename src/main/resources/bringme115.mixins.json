@@ -2,6 +2,11 @@
   "package": "com.yuusyaasisutanto.bringme115.mixin",
   "refmap": "bringme115.refmap.json",
   "mixins": [
+    "minecraft.BM115AbstractContainerMenu",
+    "minecraft.BM115GrindstoneMenu",
+    "minecraft.BM115GrindstoneMenu$BM115GrindstoneMenu1",
+    "minecraft.BM115GrindstoneMenu$BM115GrindstoneMenu2",
+    "minecraft.BM115GrindstoneMenu$BM115GrindstoneMenu3",
     "tacz.BM115EntityKineticBullet"
   ],
   "server": [

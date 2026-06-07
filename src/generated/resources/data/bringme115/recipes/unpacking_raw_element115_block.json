@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "bringme115:raw_element115_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "bringme115:raw_element115"
+  }
+}

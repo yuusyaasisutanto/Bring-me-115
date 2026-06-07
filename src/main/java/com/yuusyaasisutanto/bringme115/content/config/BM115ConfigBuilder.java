@@ -15,6 +15,8 @@ public class BM115ConfigBuilder {
 
     public static final ForgeConfigSpec.ConfigValue<List<? extends String>> SPECIAL_LEVEL_MULTIPLIERS;
 
+    public static final ForgeConfigSpec.BooleanValue EASTER_EGG_GET_LV115;
+
     static{
         BUILDER.push("Bring me 115! Damage Settings");
 
@@ -41,6 +43,12 @@ public class BM115ConfigBuilder {
                         () -> List.of("115:115.0","935:935.0"),
                         element -> element instanceof String
                 );
+
+        EASTER_EGG_GET_LV115 = BUILDER
+                .comment("shh...")
+                .comment("If this section is true, you can get the Lv115 Crystal in game...")
+                .comment("Hardcoded EasterEgg, but if you're modpack creator, I recommend to turn this off.")
+                        .define("easter_egg_get_lv115", true);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

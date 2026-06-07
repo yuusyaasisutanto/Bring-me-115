@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "item": "minecraft:chorus_fruit"
+    },
+    "B": {
+      "item": "bringme115:element115_vial"
+    },
+    "C": {
+      "item": "minecraft:jukebox"
+    },
+    "D": {
+      "item": "bringme115:raw_element115"
+    }
+  },
+  "pattern": [
+    "ACA",
+    "BDB",
+    "ABA"
+  ],
+  "result": {
+    "item": "bringme115:activated_element115"
+  },
+  "show_notification": true
+}

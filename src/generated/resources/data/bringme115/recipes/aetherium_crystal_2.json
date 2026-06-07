@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "A": {
+      "item": "bringme115:element115_vial"
+    },
+    "B": {
+      "item": "minecraft:amethyst_cluster"
+    },
+    "C": {
+      "type": "forge:nbt",
+      "count": 1,
+      "item": "bringme115:aetherium_crystal",
+      "nbt": "{BM115Modify:{PaPlvl:1}}"
+    }
+  },
+  "pattern": [
+    "ABA",
+    "ACA",
+    "ABA"
+  ],
+  "result": {
+    "item": "bringme115:aetherium_crystal",
+    "nbt": "{BM115Modify:{PaPlvl:2}}"
+  },
+  "show_notification": true
+}

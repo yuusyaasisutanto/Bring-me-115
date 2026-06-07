@@ -1,13 +1,29 @@
 {
-  "tooltip.bringme115.paplevel_indicator": "PaP level",
-  "tooltip.bringme115.paplevel_indicator.none_pap": "NONE",
   "item.bringme115.aetherium_crystal": "Aetherium Crystal (this name is placeholder)",
   "item.bringme115.aetherium_crystal.paplevel.0": "Aetherium Crystal - broken data error",
   "item.bringme115.aetherium_crystal.paplevel.1": "Raw Aetherium Crystal",
   "item.bringme115.aetherium_crystal.paplevel.2": "Refined Aetherium Crystal",
   "item.bringme115.aetherium_crystal.paplevel.3": "Flawless Aetherium Crystal",
   "item.bringme115.aetherium_crystal.paplevel.4": "Eldritch Aetherium Crystal - Level ",
+  "item.bringme115.raw_element115": "Raw Element115",
+  "item.bringme115.element115_vial": "Element115",
+
+  "block.bringme115.deepslate_element115_ore": "Deepslate Element115 Ore",
+  "block.bringme115.primitive_machine": "Primitive Pack-a-Punch Machine",
+  "block.bringme115.raw_element115_block": "Raw Element115 Block",
+
   "itemGroup.bringme115.main": "Bring me 115!",
+
   "container.bringme115.primitive_pap.button1": "Click to Pack a Punch!",
-  "tooltip.bringme115.paplevel_indicator.multiplier": "Damage x"
+
+  "tooltip.bringme115.paplevel_indicator.multiplier": "Damage",
+  "tooltip.bringme115.paplevel_indicator": "Level",
+  "tooltip.bringme115.paplevel_indicator.none_pap": "NONE",
+  "tooltip.bringme115.paplevel_detail": "§7>>Pack-a-Punch detected...§r",
+
+  "uds.tooltip.case1.line1": "...Are you serious?",
+  "uds.tooltip.case1.line2": "You'll lost that Crystal on 98.85%...",
+
+  "uds.tooltip.unknown.line1": "This is error. code 1",
+  "uds.tooltip.unknown.line2": "This is error. code 2"
 }

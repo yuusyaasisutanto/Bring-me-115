@@ -1,4 +1,5 @@
-// 1.20.1	2026-05-30T05:34:16.0075698	Item Models: bringme115
+// 1.20.1	2026-06-08T00:44:31.2779045	Item Models: bringme115
+537e499ffb20ee77d2a9b984774372ae2f137448 assets/bringme115/models/item/activated_element115.json
 2049aac01cf54e61a83c866cd58f2f1165f8cd31 assets/bringme115/models/item/aetherium_crystal.json
 209f079b245d353d2d8c9e50eff72d67841a844e assets/bringme115/models/item/aetherium_crystal_1.json
 30dee6df52865fdf694d72f6f6a0832e7525a5ed assets/bringme115/models/item/aetherium_crystal_2.json
@@ -6,5 +7,5 @@
 324d24075df62cf1adaa0b1319f700b24f66557d assets/bringme115/models/item/aetherium_crystal_4_more.json
 ff87918d77d4b63b050e3bc94caccc2b5a575b77 assets/bringme115/models/item/deepslate_element115_ore.json
 9f6ddc4e1b47c84ad4a51508b292fa5b62f1ad28 assets/bringme115/models/item/element115_vial.json
-a950f44563cdae36d60b1cc8bf29cd5338abac0a assets/bringme115/models/item/raw_element115.json
+c86fdd4205c53b67292ec15ac0b48a7dc0d2a2fc assets/bringme115/models/item/raw_element115.json
 1748501872680a34f3b90b767042f4fc99b3a8ea assets/bringme115/models/item/raw_element115_block.json

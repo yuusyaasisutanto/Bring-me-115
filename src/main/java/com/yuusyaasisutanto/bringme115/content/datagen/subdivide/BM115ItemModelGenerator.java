@@ -28,7 +28,11 @@ public class BM115ItemModelGenerator extends ItemModelProvider {
 
         // 2層目にelement115のきらめきを挟むアイテム
         // 形式的には別に普通のJsonファイルが出るが、こっちでわかりやすくするためにメソッド化して渡しとく
-        forElement115GrowingInItem(BM115ItemRegister.RAW_ELEMENT115,"raw_element115_mask","raw_element115_overlay");
+        // 現行で動かないため、普通にsimpleItemで代用
+        // forElement115GrowingInItem(BM115ItemRegister.RAW_ELEMENT115,"raw_element115_mask","raw_element115_overlay");
+        simpleItem(BM115ItemRegister.RAW_ELEMENT115);
+        simpleItem(BM115ItemRegister.ACTIVATED_ELEMENT115);
+
 
         //blockのアイテム化
         blockItem(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE);

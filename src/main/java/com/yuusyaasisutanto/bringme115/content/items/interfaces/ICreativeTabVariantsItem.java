@@ -8,4 +8,8 @@ import java.util.List;
 // クリエイティブタブでバリアントを表示しなければならないアイテムのインターフェース
 public interface ICreativeTabVariantsItem {
     List<ItemStack> getTabVariants();
+
+    public default boolean isIdleEyes(){
+        return false;
+    }
 }

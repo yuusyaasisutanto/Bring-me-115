@@ -42,7 +42,7 @@ public class BM115BlockLootTables extends BlockLootSubProvider {
         this.add(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE.get(),
                 block -> createRawOreDrops(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE.get(),
                         BM115ItemRegister.RAW_ELEMENT115.get()
-                        , 2.0F, 4.0F)
+                        , 1.0F, 2.0F)
         );
 
     }
