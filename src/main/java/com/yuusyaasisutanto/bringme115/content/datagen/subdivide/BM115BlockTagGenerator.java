@@ -32,7 +32,8 @@ public class BM115BlockTagGenerator extends BlockTagsProvider {
                 );
 
         // ダイヤツールが必須
-        this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
+        // やっぱ鉄ツール要求にする、片手間に集められるけど量が要求されるって感じ
+        this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(
                         BM115BlockRegister.RAW_ELEMENT115_BLOCK.get(),
                         BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE.get()

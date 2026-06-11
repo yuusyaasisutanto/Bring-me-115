@@ -30,13 +30,15 @@ public class BM115UnstableDimShardTooltips {
 
                 // 後の拡張性を考えてswitch文
                 switch (type){
-                    case "Lv115CrystalEE":
+                    case "Lv115CrystalEE" -> {
                         // R.I.P serious, you save the BO3 modding community...
                         tooltip.add(1, Component.translatable("uds.tooltip.case1.line1"));
                         tooltip.add(2, Component.translatable("uds.tooltip.case1.line2"));
+                    }
 
-                    default:
+                    default -> {
                         tooltip.add(1, Component.translatable("uds.tooltip.unknown.line1"));
+                    }
                 }
 
             } else {

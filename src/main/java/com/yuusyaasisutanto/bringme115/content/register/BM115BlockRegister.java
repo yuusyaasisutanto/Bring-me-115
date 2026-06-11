@@ -2,9 +2,12 @@ package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_machine.BM115PrimitiveMachineBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -24,7 +27,15 @@ public class BM115BlockRegister {
             = registerBlock("primitive_machine", () -> new BM115PrimitiveMachineBlock(BlockBehaviour.Properties.copy(Blocks.ENCHANTING_TABLE).noOcclusion()));
     // 透明度を扱う場合はクライアントイベントのRendertypeをいじるのを忘れずに
     public static final RegistryObject<Block> DEEPSLATE_ELEMENT115_ORE
-            = registerBlock("deepslate_element115_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)));
+            = registerBlock("deepslate_element115_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE)){
+                @Override
+                public boolean isOcclusionShapeFullBlock(BlockState p_222959_, BlockGetter p_222960_, BlockPos p_222961_) {
+                    return true;
+                }
+            }
+
+
+    );
     public static final RegistryObject<Block> RAW_ELEMENT115_BLOCK
             = registerBlock("raw_element115_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
 

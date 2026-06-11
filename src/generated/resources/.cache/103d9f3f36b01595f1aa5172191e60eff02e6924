@@ -1,0 +1,6 @@
+// 1.20.1	2026-06-11T17:37:34.8147208	Registries
+47900bfca16dffe208dab014671906884657c791 data/bringme115/forge/biome_modifier/add_element115_ore.json
+43d2608ec8f65ed82b93b643c406ac87859a35ac data/bringme115/forge/biome_modifier/add_element115_ore_bonus.json
+7a4ab08e3218c9e6522903afdb9cee0cecb7b8ad data/bringme115/worldgen/configured_feature/element115_ore.json
+7799fd75478f160ea1dda5215ad85434e71d71ac data/bringme115/worldgen/placed_feature/element115_ore.json
+867778481633d0589d3d1cca601ac9f401f71b58 data/bringme115/worldgen/placed_feature/element115_ore_bonus.json

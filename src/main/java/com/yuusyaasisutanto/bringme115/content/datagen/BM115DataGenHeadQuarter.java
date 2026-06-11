@@ -2,6 +2,7 @@ package com.yuusyaasisutanto.bringme115.content.datagen;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.datagen.subdivide.*;
+import com.yuusyaasisutanto.bringme115.content.worldgen.BM115WorldGenHeadQuarter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -34,6 +35,7 @@ public class BM115DataGenHeadQuarter {
             generator.addProvider(true, blockTags);
             generator.addProvider(true, new BM115ItemTagGenerator(output, lookupProvider, blockTags.contentsGetter(), existingFileHelper));
             generator.addProvider(true, new BM115RecipeGenerator(output));
+            generator.addProvider(true, new BM115WorldGenHeadQuarter(output, lookupProvider));
         }
     }
 }

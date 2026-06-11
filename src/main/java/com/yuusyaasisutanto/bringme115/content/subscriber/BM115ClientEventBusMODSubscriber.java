@@ -108,8 +108,9 @@ public class BM115ClientEventBusMODSubscriber {
     private static void setMultiLayerBlockRenderTypeToTrans(){
 
         // cutout(アルファ二値化)
-        //深層元素115鉱石
-        ItemBlockRenderTypes.setRenderLayer(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE.get(), RenderType.cutout());
+        // 深層元素115鉱石
+        // この構造だと地中に埋まっている際にカリングが効かないことが判明したため、処理軽減のために画像一枚にすることに
+        // cutoutBlockRenderTypeSetting(BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE);
 
 
         // translucent(生アルファ) - 視線を合わせた時に枠線に沿ってテクスチャが透明化する。現行だと多分解決しない。
@@ -125,7 +126,17 @@ public class BM115ClientEventBusMODSubscriber {
                 renderType -> renderType == RenderType.translucent() || renderType == RenderType.solid()
         );
 
-        TRANS_BLOCK_LIST.add(block);
+//        TRANS_BLOCK_LIST.add(block);
+    }
+
+
+    private static void cutoutBlockRenderTypeSetting(RegistryObject<Block> blockRegistryObject){
+        Block block = blockRegistryObject.get();
+        ItemBlockRenderTypes.setRenderLayer(block,
+                renderType -> renderType == RenderType.cutout() || renderType == RenderType.solid()
+        );
+
+//        TRANS_BLOCK_LIST.add(block);
     }
 
 

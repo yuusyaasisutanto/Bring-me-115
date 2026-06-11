@@ -55,6 +55,8 @@ public class BM115AbstractContainerMenu {
                                 CompoundTag crystalTag = new CompoundTag();
                                 crystal.getOrCreateTagElement("BM115Modify").putInt("PaPlvl", 115);
                                 menu.getSlot(1).set(crystal);
+                                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                                player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, 1.0F);
                                 //crystalGot = true;
                             } else {
                                 // 残念
