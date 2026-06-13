@@ -40,6 +40,7 @@ public class BringMe115 {
         BM115BlockEntityRegister.REGISTRY.register(bus);
         BM115TabRegister.REGISTRY.register(bus);
         BM115ScreenRegister.REGISTRY.register(bus);
+        BM115SoundRegister.REGISTRY.register(bus);
         bus.<RegisterCapabilitiesEvent>addListener(BM115TestItemBombCapability::register);
         bus.addListener(this::onConfigLoad);
         bus.addListener(this::onConfigReload);

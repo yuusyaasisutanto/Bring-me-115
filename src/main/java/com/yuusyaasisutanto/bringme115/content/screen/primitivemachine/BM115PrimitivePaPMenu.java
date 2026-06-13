@@ -50,16 +50,17 @@ public class BM115PrimitivePaPMenu extends AbstractContainerMenu {
         setupPlayerInventory(playerInv, 8, 84);
 
         //gunslot
-        this.addSlot(new Slot(this.primitivePaPSlot, 0, 80, 35){
+        this.addSlot(new Slot(this.primitivePaPSlot, 0, 80, 29){
             @Override
             public boolean mayPlace(@NotNull ItemStack inputItem) {
                 ResourceLocation itemName = ForgeRegistries.ITEMS.getKey(inputItem.getItem());
                 return itemName.getNamespace().equals("tacz") && itemName.getPath().equals("modern_kinetic_gun");
             }
+
         });
 
         //crystalslot
-        this.addSlot(new Slot(this.primitivePaPSlot, 1, 120, 35){
+        this.addSlot(new Slot(this.primitivePaPSlot, 1, 120, 29){
                          @Override
                          public boolean mayPlace(@NotNull ItemStack inputItem) {
                              return inputItem.is(BM115ItemRegister.AETHERIUM_CRYSTAL.get());

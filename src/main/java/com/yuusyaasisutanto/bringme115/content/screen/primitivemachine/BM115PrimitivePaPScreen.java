@@ -11,10 +11,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115PrimitivePaPMenu> {
 
     private static final ResourceLocation BASE_TEXTURE =
-            new ResourceLocation(BringMe115.ID, "textures/gui/primitive_machine_gui-assets/base.png");
+            new ResourceLocation(BringMe115.ID, "textures/gui/primitive_machine_gui-assets/primitive_machine.png");
     private static final ResourceLocation BUTTON1_TEXTURE =
             new ResourceLocation(BringMe115.ID, "textures/gui/primitive_machine_gui-assets/button1.png");
 
@@ -32,6 +35,9 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
     @Override
     protected void init(){
         super.init();
+
+        this.inventoryLabelX = -9999;
+        this.titleLabelX = -9999;
 
         this.addRenderableWidget(new ImageButton(
                 this.leftPos + 150, this.topPos + 10,
@@ -61,5 +67,36 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
 
         // ツールチップの描写
         this.renderTooltip(guiGraphics, mouseX, mouseY);
+    }
+
+    @Override
+    protected void renderLabels(GuiGraphics guiGraphics, int p_282681_, int p_283686_) {
+        guiGraphics.drawString(this.font, Component.translatable("container.bringme115.primitive_pap.title")
+                , 4, 4, 0xFFFFFF, false);
+    }
+
+    @Override
+    protected void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+
+        if (this.menu.getCarried().isEmpty() && this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
+            super.renderTooltip(guiGraphics, mouseX, mouseY);
+        } else if (this.hoveredSlot != null) {
+            Component customTooltip = null;
+
+            int slotIndex = this.hoveredSlot.getSlotIndex();
+
+            if (slotIndex == 0) {
+                customTooltip = Component.translatable("container.bringme115.primitive_pap.tooltip.weaponslot");
+            } else if (slotIndex == 1) {
+                customTooltip = Component.translatable("container.bringme115.primitive_pap.tooltip.crystalslot");
+            }
+
+            if (customTooltip != null) {
+                guiGraphics.renderTooltip(this.font, (Component) customTooltip, mouseX, mouseY);
+            }
+
+        } else {
+            super.renderTooltip(guiGraphics, mouseX, mouseY);
+        }
     }
 }

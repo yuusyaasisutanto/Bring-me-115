@@ -21,6 +21,7 @@ public class BM115UnstableDimShardRecipes {
 
 
     // 砥石を経由するレシピ
+    // Forgeイベント経由でDIM_SHARDの表示だけ行い、実際の処理はバニラmixinで処理する
     @SubscribeEvent(priority = EventPriority.HIGHEST)
     public static void putPaPCrystalOnGrindStone(GrindstoneEvent.OnPlaceItem event){
         // コンフィグから該当レシピの状態を確認

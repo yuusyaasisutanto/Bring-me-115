@@ -1,7 +1,9 @@
 package com.yuusyaasisutanto.bringme115.mixin.minecraft;
 
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
+import com.yuusyaasisutanto.bringme115.content.register.BM115SoundRegister;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.player.Player;
@@ -57,6 +59,16 @@ public class BM115AbstractContainerMenu {
                                 menu.getSlot(1).set(crystal);
                                 player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.GRINDSTONE_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
                                 player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.AMETHYST_BLOCK_CHIME, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                                if (player instanceof ServerPlayer serverPlayer){
+                                    serverPlayer.playNotifySound(
+                                            BM115SoundRegister.U_FOUND_EE.get(),
+                                            SoundSource.BLOCKS,
+                                            0.5F,
+                                            1.0F
+                                    );
+                                }
+                                // player.level().playSound(null, player.getX(), player.getY(), player.getZ(), BM115SoundRegister.U_FOUND_EE.get(), SoundSource.BLOCKS, 1.0F, 1.0F);
                                 //crystalGot = true;
                             } else {
                                 // 残念

@@ -17,6 +17,8 @@
   "itemGroup.bringme115.main": "Bring me 115!",
 
   "container.bringme115.primitive_pap.button1": "Click to Pack a Punch!",
+  "container.bringme115.primitive_pap.tooltip.weaponslot": "Gun Slot",
+  "container.bringme115.primitive_pap.tooltip.crystalslot": "Crystal Slot",
 
   "tooltip.bringme115.paplevel_indicator.multiplier": "Damage",
   "tooltip.bringme115.paplevel_indicator": "Level",
@@ -27,5 +29,9 @@
   "uds.tooltip.case1.line2": "You'll lost that Crystal on 98.85%...",
 
   "uds.tooltip.unknown.line1": "This is error. code 1",
-  "uds.tooltip.unknown.line2": "This is error. code 2"
+  "uds.tooltip.unknown.line2": "This is error. code 2",
+
+  "subtitle.bringme115.u_found_ee": "You found EasterEgg.",
+  "container.bringme115.primitive_pap.title": "Primitive Pack-a-Punch Machine"
+
 }
