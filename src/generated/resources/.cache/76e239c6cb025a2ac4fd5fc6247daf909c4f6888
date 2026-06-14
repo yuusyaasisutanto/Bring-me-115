@@ -1,4 +1,4 @@
-// 1.20.1	2026-06-08T00:44:31.2779045	Item Models: bringme115
+// 1.20.1	2026-06-14T20:42:40.7888196	Item Models: bringme115
 537e499ffb20ee77d2a9b984774372ae2f137448 assets/bringme115/models/item/activated_element115.json
 2049aac01cf54e61a83c866cd58f2f1165f8cd31 assets/bringme115/models/item/aetherium_crystal.json
 209f079b245d353d2d8c9e50eff72d67841a844e assets/bringme115/models/item/aetherium_crystal_1.json
@@ -9,3 +9,4 @@ ff87918d77d4b63b050e3bc94caccc2b5a575b77 assets/bringme115/models/item/deepslate
 9f6ddc4e1b47c84ad4a51508b292fa5b62f1ad28 assets/bringme115/models/item/element115_vial.json
 c86fdd4205c53b67292ec15ac0b48a7dc0d2a2fc assets/bringme115/models/item/raw_element115.json
 1748501872680a34f3b90b767042f4fc99b3a8ea assets/bringme115/models/item/raw_element115_block.json
+f23ffbca1ed9d52d7e8d8dfe553292a6a25fa918 assets/bringme115/models/item/unstable_dim_shard.json

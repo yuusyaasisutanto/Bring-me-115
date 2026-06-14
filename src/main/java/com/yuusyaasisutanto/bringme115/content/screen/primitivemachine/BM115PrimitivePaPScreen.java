@@ -36,15 +36,19 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
     protected void init(){
         super.init();
 
+        // 名前のラベルをガッツリ外へ
+        // ……ごり押しだなぁ
         this.inventoryLabelX = -9999;
         this.titleLabelX = -9999;
 
         this.addRenderableWidget(new ImageButton(
-                this.leftPos + 150, this.topPos + 10,
-                15, 45,
+                this.leftPos + 150, this.topPos + 21,
+                16, 32,
                 0,0,
                 0,
                 BUTTON1_TEXTURE,
+                16,
+                32,
                 (button) -> {
                     onButtonClicked();
                 }))
@@ -63,10 +67,17 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
         // 背景暗転
         this.renderBackground(guiGraphics);
 
+        // それ以外の描写
         super.render(guiGraphics, mouseX, mouseY, partialTick);
 
         // ツールチップの描写
+        // こうすることでツールチップを最前面で表示できる
+        // 逆にそうしないと耐久力などが上に表示されてしまう
         this.renderTooltip(guiGraphics, mouseX, mouseY);
+
+
+
+
     }
 
     @Override
@@ -75,6 +86,8 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
                 , 4, 4, 0xFFFFFF, false);
     }
 
+
+    // 各スロットが空の時にマウスオーバーすることで該当の場所がどのスロットかを表記
     @Override
     protected void renderTooltip(GuiGraphics guiGraphics, int mouseX, int mouseY) {
 

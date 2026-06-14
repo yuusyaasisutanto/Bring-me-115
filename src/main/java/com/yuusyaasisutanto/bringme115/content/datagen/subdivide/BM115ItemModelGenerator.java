@@ -32,6 +32,7 @@ public class BM115ItemModelGenerator extends ItemModelProvider {
         // forElement115GrowingInItem(BM115ItemRegister.RAW_ELEMENT115,"raw_element115_mask","raw_element115_overlay");
         simpleItem(BM115ItemRegister.RAW_ELEMENT115);
         simpleItem(BM115ItemRegister.ACTIVATED_ELEMENT115);
+        simpleItem(BM115ItemRegister.UNSTABLE_DIM_SHARD);
 
 
         //blockのアイテム化
