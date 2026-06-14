@@ -7,7 +7,8 @@
     "minecraft.BM115GrindstoneMenu$BM115GrindstoneMenu1",
     "minecraft.BM115GrindstoneMenu$BM115GrindstoneMenu2",
     "minecraft.BM115GrindstoneMenu$BM115GrindstoneMenu3",
-    "tacz.BM115EntityKineticBullet"
+    "tacz.BM115EntityKineticBullet",
+    "tacz.BM115GunHudOverlay"
   ],
   "server": [
   ],

@@ -1,0 +1,40 @@
+{
+  "item.bringme115.aetherium_crystal": "エーテリウムクリスタル(これはプレースホルダーの名前)",
+  "item.bringme115.aetherium_crystal.paplevel.0": "エーテリウムクリスタル - データ非整合エラー",
+  "item.bringme115.aetherium_crystal.paplevel.1": "未加工のエーテリウムクリスタル",
+  "item.bringme115.aetherium_crystal.paplevel.2": "精製されたエーテリウムクリスタル",
+  "item.bringme115.aetherium_crystal.paplevel.3": "完璧なエーテリウムクリスタル",
+  "item.bringme115.aetherium_crystal.paplevel.4": "不可思議なエーテリウムクリスタル - Level ",
+  "item.bringme115.raw_element115": "エレメント115の原石",
+  "item.bringme115.activated_element115": "活性化されたエレメント115の原石",
+  "item.bringme115.element115_vial": "エレメント115",
+  "item.bringme115.unstable_dim_shard": "§kUnstable Dimension Shard§r",
+
+  "block.bringme115.deepslate_element115_ore": "深層エレメント115鉱石",
+  "block.bringme115.primitive_machine": "原始的Pack-a-Punchマシーン",
+  "block.bringme115.raw_element115_block": "エレメント115の原石ブロック",
+
+  "itemGroup.bringme115.main": "Bring me 115!",
+
+  "container.bringme115.primitive_pap.button1": "クリックしてPack a Punch!",
+  "container.bringme115.primitive_pap.tooltip.weaponslot": "銃スロット",
+  "container.bringme115.primitive_pap.tooltip.crystalslot": "クリスタルスロット",
+  "container.bringme115.primitive_pap.title": "Primitive Pack-a-Punch Machine",
+
+  "tooltip.bringme115.paplevel_indicator.multiplier": "Damage",
+  "tooltip.bringme115.paplevel_indicator": "Level",
+  "tooltip.bringme115.paplevel_indicator.none_pap": "NONE",
+  "tooltip.bringme115.paplevel_detail": "§7>>Pack-a-Punch detected...§r",
+
+  "uds.tooltip.case1.line1": "……本気か?",
+  "uds.tooltip.case1.line2": "そのクリスタルを98.85%の確率で失うぞ……",
+
+  "uds.tooltip.unknown.line1": "This is error. code 1",
+  "uds.tooltip.unknown.line2": "This is error. code 2",
+
+  "subtitle.bringme115.u_found_ee": "イースターエッグを見つけた",
+
+  "hud.bringme115.tacz.mixin.is_paped": "§4>>Pack-a-Punch Detected...§r",
+  "hud.bringme115.tacz.mixin.is_paped.level": "Level:"
+
+}
