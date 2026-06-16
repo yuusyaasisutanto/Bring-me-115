@@ -1,6 +1,6 @@
-// 1.20.1	2026-06-08T00:44:31.2758989	Recipes
+// 1.20.1	2026-06-16T23:06:15.1835726	Recipes
 70dd6f1ce1771788e9902a7c05633471f7785634 data/bringme115/advancements/recipes/building_blocks/aetherium_crystal.json
-76aef689915427837981e7e4a40e4bebb1740661 data/bringme115/advancements/recipes/building_blocks/primitive_machine.json
+db40979e0aa3f3b1928e3c0c85599db2f360aeec data/bringme115/advancements/recipes/building_blocks/primitive_machine.json
 42debbfac40a564e258f09089729ca45eca9c9f2 data/bringme115/advancements/recipes/building_blocks/raw_element115_block.json
 99539809366cb07fbbe78fdcf6cd844374143cc0 data/bringme115/advancements/recipes/misc/activated_element115.json
 70dd6f1ce1771788e9902a7c05633471f7785634 data/bringme115/advancements/recipes/misc/aetherium_crystal.json
@@ -9,6 +9,6 @@ de33e45aee139b2fcba1247efc27c6fd66a7775b data/bringme115/recipes/activated_eleme
 76e0474d7428a30ded106c7db36f6fed5357c262 data/bringme115/recipes/aetherium_crystal_1.json
 fef02274afab545d96216dbebd8c3a73f4fb716e data/bringme115/recipes/aetherium_crystal_2.json
 905274ec7bb478538cf55496a51fa104928a2bef data/bringme115/recipes/aetherium_crystal_3.json
-ff4543e587cf5aec1209f60a2d9f7314e09acf0c data/bringme115/recipes/primitive_machine.json
+fb5065da3a0164d608a08cd5ebcd3656340ac3d5 data/bringme115/recipes/primitive_machine.json
 7364fc1ca08adc5acfbb4dcd8d95c09416cae298 data/bringme115/recipes/raw_element115_block.json
 3276589a487772b92e1786a279fd88412d6d315b data/bringme115/recipes/unpacking_raw_element115_block.json

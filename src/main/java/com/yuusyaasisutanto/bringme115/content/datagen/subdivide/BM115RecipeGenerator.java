@@ -48,11 +48,11 @@ public class BM115RecipeGenerator extends RecipeProvider {
                 .pattern("D D")
                 // 記号の定義、冒頭はChar型である（ダブルクォーテーションはString型）
                 .define('A', Items.BOOK)
-                .define('B', BM115ItemRegister.ELEMENT115_VIAL.get())
+                .define('B', BM115ItemRegister.RAW_ELEMENT115.get())
                 .define('C', Items.OBSIDIAN)
                 .define('D', Ingredient.of(ItemTags.WOODEN_FENCES))
                 // レシピの解放条件、今回はraw_element115の入手時
-                .unlockedBy("has_element115_vial", has(BM115ItemRegister.ELEMENT115_VIAL.get()))
+                .unlockedBy("has_element115_vial", has(BM115ItemRegister.RAW_ELEMENT115.get()))
                 // すべてをsaveし書き出す
                 .save(consumer);
 

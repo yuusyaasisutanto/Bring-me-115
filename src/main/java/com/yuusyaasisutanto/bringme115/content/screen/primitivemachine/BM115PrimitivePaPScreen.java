@@ -93,19 +93,24 @@ public class BM115PrimitivePaPScreen extends AbstractContainerScreen<BM115Primit
 
         if (this.menu.getCarried().isEmpty() && this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
             super.renderTooltip(guiGraphics, mouseX, mouseY);
+
         } else if (this.hoveredSlot != null) {
             Component customTooltip = null;
 
-            int slotIndex = this.hoveredSlot.getSlotIndex();
+            // コンテナがプレイヤーインベントリではないことを確認
+            // さもないとプレイヤーインベントリ側でもスロット説明の表記が出る
+            if (!(this.hoveredSlot.container instanceof Inventory)) {
+                int slotIndex = this.hoveredSlot.getSlotIndex();
 
-            if (slotIndex == 0) {
-                customTooltip = Component.translatable("container.bringme115.primitive_pap.tooltip.weaponslot");
-            } else if (slotIndex == 1) {
-                customTooltip = Component.translatable("container.bringme115.primitive_pap.tooltip.crystalslot");
-            }
+                if (slotIndex == 0) {
+                    customTooltip = Component.translatable("container.bringme115.primitive_pap.tooltip.weaponslot");
+                } else if (slotIndex == 1) {
+                    customTooltip = Component.translatable("container.bringme115.primitive_pap.tooltip.crystalslot");
+                }
 
-            if (customTooltip != null) {
-                guiGraphics.renderTooltip(this.font, (Component) customTooltip, mouseX, mouseY);
+                if (customTooltip != null) {
+                    guiGraphics.renderTooltip(this.font, (Component) customTooltip, mouseX, mouseY);
+                }
             }
 
         } else {
