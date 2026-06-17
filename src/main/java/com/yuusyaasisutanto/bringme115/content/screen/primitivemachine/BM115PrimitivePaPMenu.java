@@ -1,6 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.screen.primitivemachine;
 
 import com.tacz.guns.init.ModItems;
+import com.tacz.guns.item.ModernKineticGunItem;
 import com.yuusyaasisutanto.bringme115.content.register.BM115BlockRegister;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ScreenRegister;
@@ -53,8 +54,7 @@ public class BM115PrimitivePaPMenu extends AbstractContainerMenu {
         this.addSlot(new Slot(this.primitivePaPSlot, 0, 80, 29){
             @Override
             public boolean mayPlace(@NotNull ItemStack inputItem) {
-                ResourceLocation itemName = ForgeRegistries.ITEMS.getKey(inputItem.getItem());
-                return itemName.getNamespace().equals("tacz") && itemName.getPath().equals("modern_kinetic_gun");
+                return (inputItem.getItem() instanceof ModernKineticGunItem);
             }
 
         });

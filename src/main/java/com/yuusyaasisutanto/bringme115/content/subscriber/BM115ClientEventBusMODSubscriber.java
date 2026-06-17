@@ -15,6 +15,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionUtils;
@@ -27,8 +28,10 @@ import net.minecraftforge.client.event.RenderHighlightEvent;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.brewing.IBrewingRecipe;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.HashSet;
@@ -80,6 +83,15 @@ public class BM115ClientEventBusMODSubscriber {
     public static void renderPaPLevelToPaPedItem(RegisterItemDecorationsEvent event){
         event.register(BM115ItemRegister.AETHERIUM_CRYSTAL.get(), new BM115ItemIconPaPLevelindicator());
         event.register(MODERN_KINETIC_GUN.get(), new BM115ItemIconPaPLevelindicator());
+
+        // TiCEXとの連携（というか一方的というか）
+        // このコードをくれたもふぃさん(TiCEXの作者さん)ありがとう
+        if (ModList.get().isLoaded("ticex")){
+            Item blitsGunItem = ForgeRegistries.ITEMS.getValue(ResourceLocation.fromNamespaceAndPath("ticex","blitz_gun"));
+            if (blitsGunItem != null && blitsGunItem != Items.AIR){
+                event.register(blitsGunItem, new BM115ItemIconPaPLevelindicator());
+            }
+        }
     }
 
 

@@ -1,6 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.pap;
 
 import com.tacz.guns.init.ModItems;
+import com.tacz.guns.item.ModernKineticGunItem;
 import com.yuusyaasisutanto.bringme115.BringMe115;
 import com.yuusyaasisutanto.bringme115.content.register.BM115ItemRegister;
 import net.minecraft.nbt.CompoundTag;
@@ -45,7 +46,7 @@ public class BM115ClientEventBusPaPTooltips {
         //{BM115Modify:{PaPlvl:3, Example:500}}
         //{BM115Modify:[{PaPlvl:3, PaPExp:500}]}とすると配列型となってしまい別扱い
 
-        if(itemList.contains(itemStack.getItem())){
+        if(itemList.contains(itemStack.getItem()) || itemStack.getItem() instanceof ModernKineticGunItem){
             if (itemStack.hasTag()) {
                 CompoundTag nbt = itemStack.getTag();
                 if (nbt != null && nbt.contains("BM115Modify")) {
