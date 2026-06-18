@@ -10,19 +10,20 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.core.Logger;
+import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(EntityKineticBullet.class)
 public abstract class BM115EntityKineticBullet {
 
 
+    @Shadow private float armorIgnore;
     /*
 
 */
@@ -51,11 +52,16 @@ public abstract class BM115EntityKineticBullet {
 
     // 1.1.8においてgetDamageメソッドにてMath.maxは2回呼びだされる為、結果として想定してた値を2乗した数値が倍数として入ってしまう
     // ordinalでReturnに使われる方を指定、成功
-    @ModifyArg(method = "getDamage", at = @At(value = "INVOKE", ordinal = 1, target = "Ljava/lang/Math;max(FF)F"), index = 0, remap = false)
-    public float apply115InfusedDamage(float original){
+
+    // 1.1.7以前でも使いたいとの要望があり、どうすればいいかバリン鯖（日本のmodの包括的コミュニティ）で聞いたところ
+    // @At(value = "RETURN")の形を推奨され、そちらへ変更。
+    // ありがとうもふぃさん、dice700さん
+
+    @Inject(method = "getDamage", at = @At(value = "RETURN"),cancellable = true , remap = false)
+    public void apply115InfusedDamage(Vec3 hitVec, CallbackInfoReturnable<Float> cir){
     //    final Logger logger = (Logger) LogManager.getLogger();
     //    logger.info("PaP multiplied! - bringme115 log");
-
-        return original * this.bring_Me_115_code$bm115PapDamageModifier;
+        Float original = cir.getReturnValue();
+        cir.setReturnValue(original * this.bring_Me_115_code$bm115PapDamageModifier);
     }
 }

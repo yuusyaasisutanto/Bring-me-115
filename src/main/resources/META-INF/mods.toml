@@ -73,7 +73,7 @@ Why this need after TaCZ 1.1.8? because im lazy :P
 modId="tacz"
 mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[1.1.8,)"
+versionRange="[1.1.5,1.1.9]"
 ordering="AFTER"
 side="BOTH"
 
