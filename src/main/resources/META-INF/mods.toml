@@ -44,7 +44,8 @@ authors="${mod_authors}" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description='''
 Bring me 115! is the Rewrote Pack-a-Punched for after 1.1.5, and planning add more things related CoD Zombies.
-Why this need after TaCZ 1.1.8? because im lazy :P
+1.1.5-1.1.7 is now supported!!
+but main version is always newest tacz. Perhaps suddenly end of support will happen to old TaCZs.
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.${mod_id}]] #optional
@@ -73,7 +74,7 @@ Why this need after TaCZ 1.1.8? because im lazy :P
 modId="tacz"
 mandatory=true
 # This version range declares a minimum of the current minecraft version up to but not including the next major version
-versionRange="[1.1.5,1.1.9]"
+versionRange="[1.1.5,1.1.9)"
 ordering="AFTER"
 side="BOTH"
 

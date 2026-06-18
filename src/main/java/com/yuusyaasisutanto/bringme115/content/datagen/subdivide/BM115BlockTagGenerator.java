@@ -39,6 +39,11 @@ public class BM115BlockTagGenerator extends BlockTagsProvider {
                         BM115BlockRegister.DEEPSLATE_ELEMENT115_ORE.get()
                 );
 
+        this.tag(BlockTags.create(new ResourceLocation("tacz", "interact_key/whitelist")))
+                .add(
+                        BM115BlockRegister.PRIMITIVE_MACHINE.get()
+                );
+
         // element115鉱石のタグをフォージ側に作成
         TagKey<Block> tagElement115 = TagKey.create(Registries.BLOCK, new ResourceLocation("forge", "ores/element115"));
 
