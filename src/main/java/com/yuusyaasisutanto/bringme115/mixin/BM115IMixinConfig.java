@@ -1,6 +1,7 @@
 package com.yuusyaasisutanto.bringme115.mixin;
 
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.LoadingModList;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -22,7 +23,7 @@ public class BM115IMixinConfig implements IMixinConfigPlugin {
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
         if (mixinClassName.equals("com.yuusyaasisutanto.bringme115.mixin.tacz_presence.BM115ImmersiveGunHudOverlay")){
-            return ModList.get().isLoaded("tacz_presence");
+            return LoadingModList.get().getModFileById("tacz_presence") != null;
         }
         return true;
     }

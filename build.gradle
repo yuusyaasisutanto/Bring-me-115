@@ -228,8 +228,9 @@ dependencies {
 
     // tacz_presence-1.4.jar
     // Testing Mixin for this specified HUD
-    // compileOnly fg.deobf("curse.maven:tacz-presence-1435817:7882246")
-    implementation fg.deobf("curse.maven:tacz-presence-1435817:7882246")
+    // at least it NEED set "compileOnly"
+    compileOnly fg.deobf("curse.maven:tacz-presence-1435817:7882246")
+    // implementation fg.deobf("curse.maven:tacz-presence-1435817:7882246")
 
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
