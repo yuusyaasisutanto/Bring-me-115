@@ -51,29 +51,6 @@ public class BM115ClientEventBusMODSubscriber {
             blockScreenRegister();
             setAetheriumCrystalTextureChangingByNBT();
             setMultiLayerBlockRenderTypeToTrans();
-            setBrewingRecipe();
-        });
-    }
-
-
-    // なぜここだけJSONじゃないねん！！！！！！！！アホ！！！！！！！！！！
-    private static void setBrewingRecipe() {
-        // element115の簡易精製
-        BrewingRecipeRegistry.addRecipe(new IBrewingRecipe() {
-            @Override
-            public boolean isInput(ItemStack input) {
-                return input.is(Items.POTION) && PotionUtils.getPotion(input) == Potions.AWKWARD;
-            }
-
-            @Override
-            public boolean isIngredient(ItemStack ingredient) {
-                return ingredient.is(BM115ItemRegister.RAW_ELEMENT115.get());
-            }
-
-            @Override
-            public ItemStack getOutput(ItemStack input, ItemStack ingredient) {
-                return isInput(input) && isIngredient(ingredient) ? new ItemStack(BM115ItemRegister.ELEMENT115_VIAL.get()) : ItemStack.EMPTY;
-            }
         });
     }
 
