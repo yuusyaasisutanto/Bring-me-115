@@ -171,7 +171,9 @@ dependencies {
     // tacz-1.20.1-1.1.8-release.jar
     // implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8055552")
     // tacz-1.20.1-1.1.8-hotfix.jar
-     implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8141310")
+    // implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8141310")
+    // tacz-forge-1.20.1-1.2.0.jar
+    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:9454481")
 
     // MmmMmmMmmMmm (Target Dummy)
     // dummmmmmy-1.20-2.0.9.jar
@@ -229,7 +231,7 @@ dependencies {
     // tacz_presence-1.4.jar
     // Testing Mixin for this specified HUD
     // at least it NEED set "compileOnly"
-    compileOnly fg.deobf("curse.maven:tacz-presence-1435817:7882246")
+     compileOnly fg.deobf("curse.maven:tacz-presence-1435817:7882246")
     // implementation fg.deobf("curse.maven:tacz-presence-1435817:7882246")
 
 
