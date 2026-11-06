@@ -246,6 +246,10 @@ dependencies {
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
+    // EMI
+    // emi-1.1.24+1.20.1+forge
+    // runtimeOnly(fg.deobf("curse.maven:emi-580555:8081375"))
+
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
