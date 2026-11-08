@@ -23,10 +23,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class BM115EntityKineticBullet {
 
 
-    @Shadow private float armorIgnore;
-    /*
-
-*/
     @Unique
     private float bring_Me_115_code$bm115PapDamageModifier = 1.0f;
 

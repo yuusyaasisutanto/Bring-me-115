@@ -1,4 +1,4 @@
-package com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_machine;
+package com.yuusyaasisutanto.bringme115.content.blocks.block.primitive_machine;
 
 import com.yuusyaasisutanto.bringme115.content.screen.primitivemachine.BM115PrimitivePaPMenu;
 import net.minecraft.core.BlockPos;

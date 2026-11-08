@@ -35,6 +35,8 @@
   "subtitle.bringme115.u_found_ee": "You found EasterEgg.",
 
   "hud.bringme115.tacz.mixin.is_paped": "§4>>Pack-a-Punch Detected...§r",
-  "hud.bringme115.tacz.mixin.is_paped.level": "Level:"
+  "hud.bringme115.tacz.mixin.is_paped.level": "Level:",
+
+  "gui.jei.category.bringme115.brewrefining": "Manual Purification"
 
 }

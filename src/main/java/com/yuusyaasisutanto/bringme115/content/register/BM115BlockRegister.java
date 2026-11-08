@@ -1,7 +1,7 @@
 package com.yuusyaasisutanto.bringme115.content.register;
 
 import com.yuusyaasisutanto.bringme115.BringMe115;
-import com.yuusyaasisutanto.bringme115.content.blocks.blockentity.primitive_machine.BM115PrimitiveMachineBlock;
+import com.yuusyaasisutanto.bringme115.content.blocks.block.primitive_machine.BM115PrimitiveMachineBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;

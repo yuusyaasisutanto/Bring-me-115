@@ -172,8 +172,11 @@ dependencies {
     // implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8055552")
     // tacz-1.20.1-1.1.8-hotfix.jar
     // implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:8141310")
+    // tacz-1.20.1-1.1.8-hotfix2.jar
+    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:9037989")
+
     // tacz-forge-1.20.1-1.2.0.jar
-    implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:9454481")
+    //implementation fg.deobf("curse.maven:timeless-and-classics-zero-1028108:9454481")
 
     // MmmMmmMmmMmm (Target Dummy)
     // dummmmmmy-1.20-2.0.9.jar
@@ -231,7 +234,7 @@ dependencies {
     // tacz_presence-1.4.jar
     // Testing Mixin for this specified HUD
     // at least it NEED set "compileOnly"
-     compileOnly fg.deobf("curse.maven:tacz-presence-1435817:7882246")
+    compileOnly fg.deobf("curse.maven:tacz-presence-1435817:7882246")
     // implementation fg.deobf("curse.maven:tacz-presence-1435817:7882246")
 
 
@@ -246,7 +249,8 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"))
     compileOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"))
     // at runtime, use the full JEI jar for Forge
-    runtimeOnly(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
+    // I'm using JEI's internal methods, so it turned to implementation
+    implementation(fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}"))
 
     // EMI
     // emi-1.1.24+1.20.1+forge
